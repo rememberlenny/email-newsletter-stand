@@ -1,7 +1,8 @@
 class NewslettersController < ApplicationController
+  respond_to :html, :json
   before_action :set_newsletter, only: [:show, :edit, :update, :destroy]
-  skip_authorization_check, only: [:index, :show]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_authorization_check only: [:show, :index]
+  load_and_authorize_resource :user
 
   def index
     @newsletters = Newsletter.all

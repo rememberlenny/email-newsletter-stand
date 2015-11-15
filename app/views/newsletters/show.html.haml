@@ -9,6 +9,11 @@
 %p
   %b Description:
   = @newsletter.description
+%p
+  %b Source:
+  = @newsletter.image_url
+%p
+  = image_tag @newsletter.image_url
 
 = link_to 'Edit', edit_newsletter_path(@newsletter)
 \|
