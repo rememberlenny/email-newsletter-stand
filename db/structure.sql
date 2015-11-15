@@ -140,7 +140,8 @@ CREATE TABLE newsletters (
     url character varying(255),
     description text,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    image_url character varying(255)
 );
 
 
@@ -433,4 +434,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151115184440');
 INSERT INTO schema_migrations (version) VALUES ('20151115184458');
 
 INSERT INTO schema_migrations (version) VALUES ('20151115184500');
+
+INSERT INTO schema_migrations (version) VALUES ('20151115190251');
 

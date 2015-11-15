@@ -1,0 +1,2 @@
+module AddImageToNewslettersHelper
+end

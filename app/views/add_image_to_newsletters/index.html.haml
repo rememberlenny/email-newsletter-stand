@@ -1,0 +1,17 @@
+%h1 Listing add_image_to_newsletters
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @add_image_to_newsletters.each do |add_image_to_newsletter|
+    %tr
+      %td= link_to 'Show', add_image_to_newsletter
+      %td= link_to 'Edit', edit_add_image_to_newsletter_path(add_image_to_newsletter)
+      %td= link_to 'Destroy', add_image_to_newsletter, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Add image to newsletter', new_add_image_to_newsletter_path

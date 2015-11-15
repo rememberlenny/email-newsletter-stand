@@ -1,5 +1,7 @@
 # Route prefixes use a single letter to allow for vanity urls of two or more characters
 Rails.application.routes.draw do
+  resources :add_image_to_newsletters
+
   resources :newsletters
 
   if defined? Sidekiq
