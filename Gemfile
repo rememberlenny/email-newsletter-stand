@@ -78,6 +78,10 @@ gem 'sinatra', require: false
 gem 'addressable'
 gem 'settingslogic'
 
+# SEO
+gem 'meta-tags'
+gem "opengraph_parser"
+
 group :development do
   # Docs
   gem 'sdoc', require: false    # bundle exec rake doc:rails
