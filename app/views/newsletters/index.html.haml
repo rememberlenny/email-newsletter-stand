@@ -2,6 +2,7 @@
 
 %table
   %tr
+    %th Image
     %th Name
     %th Url
     %th Description
@@ -11,6 +12,7 @@
 
   - @newsletters.each do |newsletter|
     %tr
+      %td= image_tag newsletter.image_url
       %td= newsletter.name
       %td= newsletter.url
       %td= newsletter.description
