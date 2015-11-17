@@ -1,25 +1,15 @@
-%h1 Listing newsletters
+%h1 Newsletters
 
-%table
-  %tr
-    %th Image
-    %th Name
-    %th Url
-    %th Description
-    %th
-    %th
-    %th
+%div.row
+  %ul.large-block-grid-4
+    - @newsletters.each do |newsletter|
+      %li
+        %div
+          = image_tag attachment_url(newsletter, :featured_image, :fill, 300, 300, format: "jpg")
+          %h2
+            = link_to newsletter.name, newsletter
+          = link_to 'Learn more', newsletter.url, class: 'btn btn-block btn-lg btn-primary'
+          = newsletter.description
+  %br
 
-  - @newsletters.each do |newsletter|
-    %tr
-      %td= image_tag attachment_url(newsletter, :featured_image, :fill, 300, 300, format: "jpg")
-      %td= newsletter.name
-      %td= newsletter.url
-      %td= newsletter.description
-      %td= link_to 'Show', newsletter
-      %td= link_to 'Edit', edit_newsletter_path(newsletter)
-      %td= link_to 'Destroy', newsletter, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Newsletter', new_newsletter_path
+  = link_to 'New Newsletter', new_newsletter_path
