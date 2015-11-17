@@ -14,8 +14,10 @@
     = yield :head
     = render 'layouts/airbrake'
   %body{class: "controller__#{controller_name} action__#{action_name}"}
-    = render 'layouts/navigation'
-    .container
+    .col-md-3.col-small-12
+      = render 'layouts/sidebar'
+      = render 'layouts/navigation'
+    .col-md-9.col-small-12
       .errors__container
         = render 'layouts/messages'
       = yield
