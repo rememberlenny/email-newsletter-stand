@@ -42,6 +42,6 @@ class CurationsController < ApplicationController
     end
 
     def curation_params
-      params.require(:curation).permit(:name, :placement)
+      params.require(:curation).permit(:name, :placement, curation_posts_attributes: [:id, :curation_id, :newsletter_id, :_destroy])
     end
 end

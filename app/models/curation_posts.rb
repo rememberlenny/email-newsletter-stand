@@ -1,3 +1,3 @@
 class CurationPosts < ActiveRecord::Base
-  belongs_to :curation
+  belongs_to :curations
 end

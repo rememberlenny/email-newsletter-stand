@@ -1,0 +1,4 @@
+  = f.simple_fields_for :curation_posts do |post|
+    = render 'curation_posts', :f => post
+  .links
+    = link_to_add_association 'add curation post', f, :curation_post

@@ -138,6 +138,7 @@ CREATE TABLE curation_posts (
     id integer NOT NULL,
     curation_id integer,
     newsletter_id integer,
+    curations_id integer,
     created_at timestamp without time zone,
     updated_at timestamp without time zone
 );
@@ -465,6 +466,13 @@ CREATE INDEX index_authentications_on_provider ON authentications USING btree (p
 
 
 --
+-- Name: index_curation_posts_on_curations_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_curation_posts_on_curations_id ON curation_posts USING btree (curations_id);
+
+
+--
 -- Name: index_rails_admin_histories; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -537,4 +545,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151117141521');
 INSERT INTO schema_migrations (version) VALUES ('20151117141542');
 
 INSERT INTO schema_migrations (version) VALUES ('20151117141726');
+
+INSERT INTO schema_migrations (version) VALUES ('20151117152454');
 
