@@ -1,4 +1,5 @@
 class CurationsController < ApplicationController
+  respond_to :html, :json
   before_action :set_curation, only: [:show, :edit, :update, :destroy]
 
   def index
