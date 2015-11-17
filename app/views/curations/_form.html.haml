@@ -1,0 +1,9 @@
+= simple_form_for(@curation) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :placement
+
+  .form-actions
+    = f.button :submit

@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @curation.name
+%p
+  %b Placement:
+  = @curation.placement
+
+= link_to 'Edit', edit_curation_path(@curation)
+\|
+= link_to 'Back', curations_path

@@ -131,6 +131,70 @@ ALTER SEQUENCE categories_id_seq OWNED BY categories.id;
 
 
 --
+-- Name: curation_posts; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE curation_posts (
+    id integer NOT NULL,
+    curation_id integer,
+    newsletter_id integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: curation_posts_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE curation_posts_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: curation_posts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE curation_posts_id_seq OWNED BY curation_posts.id;
+
+
+--
+-- Name: curations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE curations (
+    id integer NOT NULL,
+    name character varying(255),
+    placement character varying(255),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: curations_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE curations_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: curations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE curations_id_seq OWNED BY curations.id;
+
+
+--
 -- Name: newsletters; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -297,6 +361,20 @@ ALTER TABLE ONLY categories ALTER COLUMN id SET DEFAULT nextval('categories_id_s
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY curation_posts ALTER COLUMN id SET DEFAULT nextval('curation_posts_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY curations ALTER COLUMN id SET DEFAULT nextval('curations_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY newsletters ALTER COLUMN id SET DEFAULT nextval('newsletters_id_seq'::regclass);
 
 
@@ -336,6 +414,22 @@ ALTER TABLE ONLY authentications
 
 ALTER TABLE ONLY categories
     ADD CONSTRAINT categories_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: curation_posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY curation_posts
+    ADD CONSTRAINT curation_posts_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: curations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY curations
+    ADD CONSTRAINT curations_pkey PRIMARY KEY (id);
 
 
 --
@@ -436,4 +530,8 @@ INSERT INTO schema_migrations (version) VALUES ('20151115184458');
 INSERT INTO schema_migrations (version) VALUES ('20151115184500');
 
 INSERT INTO schema_migrations (version) VALUES ('20151115190251');
+
+INSERT INTO schema_migrations (version) VALUES ('20151117141521');
+
+INSERT INTO schema_migrations (version) VALUES ('20151117141542');
 

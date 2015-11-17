@@ -1,0 +1,21 @@
+%h1 Listing curations
+
+%table
+  %tr
+    %th Name
+    %th Placement
+    %th
+    %th
+    %th
+
+  - @curations.each do |curation|
+    %tr
+      %td= curation.name
+      %td= curation.placement
+      %td= link_to 'Show', curation
+      %td= link_to 'Edit', edit_curation_path(curation)
+      %td= link_to 'Destroy', curation, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Curation', new_curation_path
