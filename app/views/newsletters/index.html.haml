@@ -4,7 +4,8 @@
   %ul.block-grid-md-4.block-grid-sm-2
     - @newsletters.each do |newsletter|
       %li
-        = image_tag attachment_url(newsletter, :featured_image, :fill, 300, 300, format: "jpg")
+        = link_to newsletter do
+          = image_tag attachment_url(newsletter, :featured_image, :fill, 300, 300, format: "jpg")
         %h2
           = link_to newsletter.name, newsletter
         = link_to 'Learn more', newsletter.url, class: 'btn btn-block btn-lg btn-primary'

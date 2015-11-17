@@ -1,23 +1,22 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @newsletter.name
-%p
-  %b Url:
-  = @newsletter.url
-%p
-  %b Description:
-  = @newsletter.description
-%p
-  = image_tag attachment_url(@newsletter, :featured_image, :fill, 300, 300, format: "jpg")
-%div.bootstrap-tagsinput
-  %b Tags:
-  = raw @newsletter.tag_list.map { |t| link_to t, tag_path(t), class: 'tag label label-info' }.join(' ')
+%div.row
+  %div.col-md-8
+    %h1
+      = @newsletter.name
+    %div
+      %p
+        = @newsletter.description
+    %p
+      %b
+        = link_to 'Website', @newsletter.url
+    %div.bootstrap-tagsinput
+      %b Tags:
+      = raw @newsletter.tag_list.map { |t| link_to t, tag_path(t), class: 'tag label label-info' }.join(' ')
 
-%p
-  = image_tag @newsletter.image_url
-
-= link_to 'Edit', edit_newsletter_path(@newsletter)
-\|
-= link_to 'Back', newsletters_path
+    - if current_user.is_admin?
+      = link_to 'Edit', edit_newsletter_path(@newsletter)
+      \|
+    = link_to 'Back', newsletters_path, class: 'btn btn-primary'
+  %div.col-md-4
+    = image_tag attachment_url(@newsletter, :featured_image, :fill, 300, 300, format: "jpg")
