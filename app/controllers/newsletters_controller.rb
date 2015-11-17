@@ -1,8 +1,9 @@
 class NewslettersController < ApplicationController
   respond_to :html, :json
   before_action :set_newsletter, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource only: [:edit, :update, :destroy]
   skip_authorization_check only: [:show, :index]
-  load_and_authorize_resource :user
+  skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
     if params[:tag]
