@@ -1,6 +1,8 @@
-%h1 Newsletters
-
 %div.row
+  %h1
+    = params[:tag].capitalize.html_safe
+    Newsletters
+
   %ul.block-grid-md-4.block-grid-sm-2
     - @newsletters.each do |newsletter|
       %li
@@ -11,5 +13,6 @@
         = link_to 'Learn more', newsletter.url, class: 'btn btn-block btn-lg btn-primary'
         = newsletter.description
   %br
+  - if current_user && current_user.is_admin?
+    = link_to 'New Newsletter', new_newsletter_path
 
-  = link_to 'New Newsletter', new_newsletter_path
