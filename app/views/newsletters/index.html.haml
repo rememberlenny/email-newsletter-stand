@@ -1,15 +1,14 @@
 %h1 Newsletters
 
 %div.row
-  %ul.large-block-grid-4
+  %ul.block-grid-md-4.block-grid-sm-2
     - @newsletters.each do |newsletter|
       %li
-        %div
-          = image_tag attachment_url(newsletter, :featured_image, :fill, 300, 300, format: "jpg")
-          %h2
-            = link_to newsletter.name, newsletter
-          = link_to 'Learn more', newsletter.url, class: 'btn btn-block btn-lg btn-primary'
-          = newsletter.description
+        = image_tag attachment_url(newsletter, :featured_image, :fill, 300, 300, format: "jpg")
+        %h2
+          = link_to newsletter.name, newsletter
+        = link_to 'Learn more', newsletter.url, class: 'btn btn-block btn-lg btn-primary'
+        = newsletter.description
   %br
 
   = link_to 'New Newsletter', new_newsletter_path
