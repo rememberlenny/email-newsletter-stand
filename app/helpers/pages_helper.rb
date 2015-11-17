@@ -4,7 +4,10 @@ module PagesHelper
     curation = Curation.where(placement: placement).first
     curation_post = []
     if !curation.nil?
-      curation_post = CurationPost.where(curation_id: curation.id)
+      results = CuratedPost.where(curation_id: curation.id)
+      results.each do |post|
+        curation_post << Newsletter.find(post.newsletter_id)
+      end
     end
     return curation_post
   end

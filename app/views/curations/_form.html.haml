@@ -1,6 +1,6 @@
 = simple_form_for @curation do |f|
   = f.input :name
-  = f.input :placement
+  = f.input :placement, required: true
   %h3 Tasks
   #tasks
     = f.simple_fields_for :curated_posts do |post|
