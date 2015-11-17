@@ -1,9 +1,12 @@
 %h1= I18n.t('brand.name')
 
 - render_curated_row('home').each do |item|
-  %p
-    El:
-    = item[:name]
+  %div
+    %p
+      - link_to item do
+        = image_tag attachment_url(item, :featured_image, :fill, 300, 300, format: "jpg")
+    %h3
+      = link_to item[:name], item
 
 %p
   Rails 4 starter app with social authentication and other goodies.

@@ -24,9 +24,6 @@ class NewslettersController < ApplicationController
   def create
     @newsletter = Newsletter.new(newsletter_params)
     @newsletter.save
-
-    Newsletter.delay.get_ograph_image @newsletter.id
-
     respond_with(@newsletter)
   end
 
