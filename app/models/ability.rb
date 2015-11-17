@@ -10,8 +10,9 @@ class Ability
     can :manage, User, id: user.id
     can :manage, Authentication, user_id: user.id
 
-    if user.is_curator? && defined? RailsAdmin
-
+    if user.is_curator?
+      can :manage, Curation
+      can :manage, CurationPosts
     end
 
     if user.is_admin? && defined? RailsAdmin
