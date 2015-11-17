@@ -11,4 +11,9 @@ module PagesHelper
     end
     return curation_post
   end
+
+  def render_recent_newsletters num
+    newsletters = Newsletter.all
+    return newsletters
+  end
 end
