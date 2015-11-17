@@ -5,7 +5,11 @@ class NewslettersController < ApplicationController
   load_and_authorize_resource :user
 
   def index
-    @newsletters = Newsletter.all
+    if params[:tag]
+      @newsletters = Newsletter.tagged_with(params[:tag])
+    else
+      @newsletters = Newsletter.all
+    end
     respond_with(@newsletters)
   end
 

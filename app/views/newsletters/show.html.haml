@@ -12,6 +12,9 @@
 %p
   %b Source:
   = image_tag attachment_url(@newsletter, :featured_image, :fill, 300, 300, format: "jpg")
+%p
+  %b Tags:
+  = raw @newsletter.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
 
 %p
   = image_tag @newsletter.image_url
