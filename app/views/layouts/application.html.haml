@@ -20,12 +20,13 @@
     .col-md-3.col-small-12
       = render 'layouts/sidebar'
       = render 'layouts/navigation'
-    .col-md-9.col-small-12
-      = yield
       %footer.page__footer
         - if content_for? :footer
           = yield :footer
         - else
           = render 'layouts/footer'
+    .col-md-9.col-small-12
+      = yield
+      %footer
     = render 'layouts/analytics'
     = render 'layouts/javascripts'
