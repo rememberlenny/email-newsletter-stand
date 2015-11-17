@@ -53,6 +53,7 @@ default_env: &default_env
   ENS_AWS_ACCESS_KEY_ID: ''
   ENS_AWS_SECRET_ACCESS_KEY: ''
   ENS_AWS_REGION: ''
+  ENS_AWS_REGION: ''
   ENS_AWS_BUCKET: ''
 
   # Devise password encryption keys.

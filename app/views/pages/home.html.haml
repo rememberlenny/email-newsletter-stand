@@ -3,8 +3,9 @@
 - render_curated_row('home').each do |item|
   %div
     %p
-      - link_to item do
+      = link_to item do
         = image_tag attachment_url(item, :featured_image, :fill, 300, 300, format: "jpg")
+
     %h3
       = link_to item[:name], item
 

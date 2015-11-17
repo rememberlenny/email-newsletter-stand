@@ -43,6 +43,6 @@ class NewslettersController < ApplicationController
     end
 
     def newsletter_params
-      params.require(:newsletter).permit(:name, :url, :description, :featured_image)
+      params.require(:newsletter).permit(:name, :url, :description, :featured_image, :tag_list)
     end
 end

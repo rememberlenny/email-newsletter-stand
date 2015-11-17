@@ -287,6 +287,71 @@ CREATE TABLE schema_migrations (
 
 
 --
+-- Name: taggings; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE taggings (
+    id integer NOT NULL,
+    tag_id integer,
+    taggable_id integer,
+    taggable_type character varying(255),
+    tagger_id integer,
+    tagger_type character varying(255),
+    context character varying(128),
+    created_at timestamp without time zone
+);
+
+
+--
+-- Name: taggings_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE taggings_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: taggings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE taggings_id_seq OWNED BY taggings.id;
+
+
+--
+-- Name: tags; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE tags (
+    id integer NOT NULL,
+    name character varying(255),
+    taggings_count integer DEFAULT 0
+);
+
+
+--
+-- Name: tags_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE tags_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE tags_id_seq OWNED BY tags.id;
+
+
+--
 -- Name: users; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -391,6 +456,20 @@ ALTER TABLE ONLY rails_admin_histories ALTER COLUMN id SET DEFAULT nextval('rail
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY taggings ALTER COLUMN id SET DEFAULT nextval('taggings_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY tags ALTER COLUMN id SET DEFAULT nextval('tags_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 
 
@@ -451,6 +530,22 @@ ALTER TABLE ONLY rails_admin_histories
 
 
 --
+-- Name: taggings_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY taggings
+    ADD CONSTRAINT taggings_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tags_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY tags
+    ADD CONSTRAINT tags_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -480,6 +575,20 @@ CREATE INDEX index_rails_admin_histories ON rails_admin_histories USING btree (i
 
 
 --
+-- Name: index_taggings_on_taggable_id_and_taggable_type_and_context; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_taggings_on_taggable_id_and_taggable_type_and_context ON taggings USING btree (taggable_id, taggable_type, context);
+
+
+--
+-- Name: index_tags_on_name; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_tags_on_name ON tags USING btree (name);
+
+
+--
 -- Name: index_users_on_confirmation_token; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -505,6 +614,13 @@ CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (re
 --
 
 CREATE UNIQUE INDEX index_users_on_unlock_token ON users USING btree (unlock_token);
+
+
+--
+-- Name: taggings_idx; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX taggings_idx ON taggings USING btree (tag_id, taggable_id, taggable_type, context, tagger_id, tagger_type);
 
 
 --
@@ -551,4 +667,14 @@ INSERT INTO schema_migrations (version) VALUES ('20151117152456');
 INSERT INTO schema_migrations (version) VALUES ('20151117152457');
 
 INSERT INTO schema_migrations (version) VALUES ('20151117191609');
+
+INSERT INTO schema_migrations (version) VALUES ('20151117193227');
+
+INSERT INTO schema_migrations (version) VALUES ('20151117193228');
+
+INSERT INTO schema_migrations (version) VALUES ('20151117193229');
+
+INSERT INTO schema_migrations (version) VALUES ('20151117193230');
+
+INSERT INTO schema_migrations (version) VALUES ('20151117193231');
 

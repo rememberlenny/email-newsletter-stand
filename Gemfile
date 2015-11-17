@@ -78,6 +78,7 @@ gem 'sinatra', require: false
 # Utils
 gem 'addressable'
 gem 'settingslogic'
+gem 'acts-as-taggable-on', '~> 3.4'
 
 # Uploads
 gem "refile", require: "refile/rails"
