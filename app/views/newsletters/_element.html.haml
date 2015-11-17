@@ -1,3 +1,4 @@
+- item = item ? item : local[:item]
 %p
   = link_to item do
     = image_tag attachment_url(item, :featured_image, :fill, 300, 300, format: "jpg")

@@ -8,5 +8,5 @@
     %ul.block-grid-md-4.block-grid-lg-5.block-grid-sm-2
       - render_recent_newsletters(8).each do |newsletter|
         %li
-          = render 'newsletters/element', :item => newsletter
+          = render 'newsletters/element', :local => { :item => newsletter, :has_tags => false }
 
