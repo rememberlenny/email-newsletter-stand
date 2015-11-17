@@ -13,7 +13,9 @@ gem 'terminal-notifier', group: [:development]
 # LINUX
 # gem 'rb-inotify', :group => [:development, :test]   # monitor file changes without hammering the disk
 
-
+# Search
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 # Monitoring
 gem 'rack-timeout', '~> 0.1.0beta4'

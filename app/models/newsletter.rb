@@ -1,6 +1,7 @@
 class Newsletter < ActiveRecord::Base
   attachment :featured_image
   acts_as_taggable
+  include Elasticsearch::Model
 
   def self.get_ograph_image id
     n = Newsletter.find id
