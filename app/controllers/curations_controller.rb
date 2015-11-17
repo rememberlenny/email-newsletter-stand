@@ -1,6 +1,7 @@
 class CurationsController < ApplicationController
   respond_to :html, :json
   before_action :set_curation, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource :user
 
   def index
     @curations = Curation.all
