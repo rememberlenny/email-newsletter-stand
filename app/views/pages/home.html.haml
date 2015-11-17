@@ -1,7 +1,9 @@
 %h1= I18n.t('brand.name')
 
-- render_curated_row.each do |curated_item|
-  = curated_item.name
+- render_curated_row('home').each do |curated_item|
+  %p
+    El:
+    = curated_item.name
 
 %p
   Rails 4 starter app with social authentication and other goodies.
