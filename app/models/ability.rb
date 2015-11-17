@@ -12,7 +12,7 @@ class Ability
 
     if user.is_curator?
       can :manage, Curation
-      can :manage, CurationPosts
+      can :manage, CurationPost
     end
 
     if user.is_admin? && defined? RailsAdmin

@@ -131,24 +131,23 @@ ALTER SEQUENCE categories_id_seq OWNED BY categories.id;
 
 
 --
--- Name: curation_posts; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: curated_posts; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
-CREATE TABLE curation_posts (
+CREATE TABLE curated_posts (
     id integer NOT NULL,
     curation_id integer,
     newsletter_id integer,
-    curations_id integer,
     created_at timestamp without time zone,
     updated_at timestamp without time zone
 );
 
 
 --
--- Name: curation_posts_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: curated_posts_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE curation_posts_id_seq
+CREATE SEQUENCE curated_posts_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -157,10 +156,10 @@ CREATE SEQUENCE curation_posts_id_seq
 
 
 --
--- Name: curation_posts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: curated_posts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE curation_posts_id_seq OWNED BY curation_posts.id;
+ALTER SEQUENCE curated_posts_id_seq OWNED BY curated_posts.id;
 
 
 --
@@ -363,7 +362,7 @@ ALTER TABLE ONLY categories ALTER COLUMN id SET DEFAULT nextval('categories_id_s
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY curation_posts ALTER COLUMN id SET DEFAULT nextval('curation_posts_id_seq'::regclass);
+ALTER TABLE ONLY curated_posts ALTER COLUMN id SET DEFAULT nextval('curated_posts_id_seq'::regclass);
 
 
 --
@@ -419,11 +418,11 @@ ALTER TABLE ONLY categories
 
 
 --
--- Name: curation_posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: curated_posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
-ALTER TABLE ONLY curation_posts
-    ADD CONSTRAINT curation_posts_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY curated_posts
+    ADD CONSTRAINT curated_posts_pkey PRIMARY KEY (id);
 
 
 --
@@ -466,10 +465,10 @@ CREATE INDEX index_authentications_on_provider ON authentications USING btree (p
 
 
 --
--- Name: index_curation_posts_on_curations_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_curated_posts_on_curation_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
-CREATE INDEX index_curation_posts_on_curations_id ON curation_posts USING btree (curations_id);
+CREATE INDEX index_curated_posts_on_curation_id ON curated_posts USING btree (curation_id);
 
 
 --
@@ -542,9 +541,11 @@ INSERT INTO schema_migrations (version) VALUES ('20151115190251');
 
 INSERT INTO schema_migrations (version) VALUES ('20151117141521');
 
-INSERT INTO schema_migrations (version) VALUES ('20151117141542');
-
 INSERT INTO schema_migrations (version) VALUES ('20151117141726');
 
-INSERT INTO schema_migrations (version) VALUES ('20151117152454');
+INSERT INTO schema_migrations (version) VALUES ('20151117152455');
+
+INSERT INTO schema_migrations (version) VALUES ('20151117152456');
+
+INSERT INTO schema_migrations (version) VALUES ('20151117152457');
 

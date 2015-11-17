@@ -88,9 +88,9 @@ group :development do
   gem 'sdoc', require: false    # bundle exec rake doc:rails
 
   # Errors
-  # gem 'better_errors'
-  # gem 'binding_of_caller'     # extra features for better_errors
-  # gem 'meta_request'          # for rails_panel chrome extension
+  gem 'better_errors'
+  gem 'binding_of_caller'     # extra features for better_errors
+  gem 'meta_request'          # for rails_panel chrome extension
 
   # Deployment
   # gem 'capistrano'

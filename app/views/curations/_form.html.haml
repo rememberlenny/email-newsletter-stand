@@ -1,18 +1,10 @@
-= simple_form_for(@curation) do |f|
-  = f.error_notification
-
-  .form-inputs
-    = f.input :name
-    = f.input :placement
-
-    #tasks
-      = f.simple_fields_for :curation_posts do |post|
-        = render 'curation_posts', f: post
-      .links
-        = link_to_add_association 'add post', f, :curation_posts
-    = f.actions do
-      = f.action :submit
-
-  .form-actions
-    = f.button :submit
-
+= simple_form_for @curation do |f|
+  = f.input :name
+  = f.input :placement
+  %h3 Tasks
+  #tasks
+    = f.simple_fields_for :curated_posts do |post|
+      = render 'curated_post', f: post
+    .links
+      = link_to_add_association 'add post', f, :curated_posts
+  = f.submit
