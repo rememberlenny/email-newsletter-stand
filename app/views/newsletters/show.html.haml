@@ -11,7 +11,8 @@
   = @newsletter.description
 %p
   %b Source:
-  = @newsletter.image_url
+  = image_tag attachment_url(@newsletter, :featured_image, :fill, 300, 300, format: "jpg")
+
 %p
   = image_tag @newsletter.image_url
 

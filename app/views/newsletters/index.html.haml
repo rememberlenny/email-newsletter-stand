@@ -12,7 +12,7 @@
 
   - @newsletters.each do |newsletter|
     %tr
-      %td= image_tag newsletter.image_url
+      %td= image_tag attachment_url(newsletter, :featured_image, :fill, 300, 300, format: "jpg")
       %td= newsletter.name
       %td= newsletter.url
       %td= newsletter.description

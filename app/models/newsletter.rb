@@ -1,4 +1,5 @@
 class Newsletter < ActiveRecord::Base
+  attachment :featured_image
 
   def self.get_ograph_image id
     n = Newsletter.find id
