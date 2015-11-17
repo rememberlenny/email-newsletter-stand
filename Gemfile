@@ -78,8 +78,11 @@ gem 'sinatra', require: false
 # Utils
 gem 'addressable'
 gem 'settingslogic'
+
+# Uploads
 gem "refile", require: "refile/rails"
 gem "refile-mini_magick"
+gem "refile-s3"
 
 # SEO
 gem 'meta-tags'
