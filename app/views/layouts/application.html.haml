@@ -26,6 +26,8 @@
         - else
           = render 'layouts/footer'
     .col-md-9.col-small-12
+      - if defined? @has_search
+        = render 'layouts/search_large'
       = yield
       %footer
     = render 'layouts/analytics'

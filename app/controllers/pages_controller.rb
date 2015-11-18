@@ -23,4 +23,8 @@ class PagesController < ApplicationController
   def error
     redirect_to root_path if flash.empty?
   end
+
+  def home
+    @has_search = true
+  end
 end

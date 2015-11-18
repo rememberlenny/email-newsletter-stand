@@ -2,4 +2,5 @@
   %h1
     = I18n.t('brand.name')
 
-= render 'layouts/search'
+- if !defined? @has_search
+  = render 'layouts/search'
