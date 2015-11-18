@@ -42,6 +42,8 @@ Rails.application.routes.draw do
     resources :authentications, path: 'accounts'
   end
   get '/home' => 'users#show', as: 'user_home'
+  get '/import'         => 'importer#index', as: 'importer'
+  post '/import'        => 'importer#import', as: 'importing'
 
   # Dummy preview pages for testing.
   get '/p/test' => 'pages#test', as: 'test'
