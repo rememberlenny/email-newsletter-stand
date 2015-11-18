@@ -1,8 +1,10 @@
 %div.row
   %ul.block-grid-md-4.block-grid-lg-5.block-grid-sm-2
-    - render_curated_row('home').each do |item|
-      %li.element-module.element-container
-        = render 'newsletters/element_notag', :item => item
+    - @tags.each do |tag|
+      %li
+        %h3
+          = tag.name
+
 
 %div.row
   %h2

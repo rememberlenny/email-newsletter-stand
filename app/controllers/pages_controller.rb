@@ -26,5 +26,6 @@ class PagesController < ApplicationController
 
   def home
     @has_search = true
+    @tags = Tag.all
   end
 end
