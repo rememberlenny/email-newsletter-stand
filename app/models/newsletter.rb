@@ -5,6 +5,11 @@ class Newsletter < ActiveRecord::Base
 
   algoliasearch per_environment: true do
     add_attribute :featured_image_url
+    add_attribute :page_url
+  end
+
+  def page_url
+    Rails.application.routes.url_helpers.newsletter_path(self)
   end
 
   def featured_image_url

@@ -1,7 +1,8 @@
 
   $(document).ready(function() {
     var client = algoliasearch("<%= ENV['ALGOLIASEARCH_APPLICATION_ID'] %>", "<%= ENV['ALGOLIASEARCH_API_KEY'] %>");
-    var template = Hogan.compile('<a href="">{{#_highlightResult.featured_image_url}}<img src="{{{_highlightResult.featured_image_url.value}}}" />{{/_highlightResult.featured_image_url}}<h3>{{{_highlightResult.name.value}}}</h3>{{{_highlightResult.description.value}}}');
+    var image = '{{#_highlightResult.featured_image_url}}<img src="{{{_highlightResult.featured_image_url.value}}}" />{{/_highlightResult.featured_image_url}}';
+    var template = Hogan.compile('<a href="">'.image.'<h3>{{{_highlightResult.name.value}}}</h3>{{{_highlightResult.description.value}}}');
     $('input#search-field').typeahead(null, {
       source: client.initIndex('Newsletter_<%= Rails.env %>').ttAdapter(),
       displayKey: 'name',
