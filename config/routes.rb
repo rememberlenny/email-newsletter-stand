@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :curations
   resources :newsletters
 
-  get 'tags/:tag', to: 'newsletters#index', as: :tag
+  get 't/:tag', to: 'newsletters#index', as: :tag
 
   if defined? Sidekiq
     require 'sidekiq/web'
