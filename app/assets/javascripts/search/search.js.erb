@@ -1,7 +1,7 @@
 
   $(document).ready(function() {
     var client = algoliasearch("J2ELQ5BG86", "a8ceec80c94969b38c848b92effd9263");
-    var template = Hogan.compile('<img src="http://fakeimg.pl/100x100" /><h3>{{{_highlightResult.name.value}}}</h3>{{{_highlightResult.description.value}}}');
+    var template = Hogan.compile('{{#_highlightResult.featured_image_url}}<img src="{{{_highlightResult.featured_image_url.value}}}" />{{/_highlightResult.featured_image_url}}<h3>{{{_highlightResult.name.value}}}</h3>{{{_highlightResult.description.value}}}');
     $('input#search-field').typeahead(null, {
       source: client.initIndex('Newsletter').ttAdapter(),
       displayKey: 'name',
