@@ -9,8 +9,6 @@ class ImporterController < ApplicationController
     rowarray = Array.new
     myfile = params[:file]
 
-    myfile.pry
-
     CSV.foreach(myfile.path) do |row|
       rowarray << row
       @rowarraydisp = rowarray
