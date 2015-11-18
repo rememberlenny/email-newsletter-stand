@@ -1,5 +1,7 @@
 module ApplicationHelper
   include CommonHelper
+  include ActsAsTaggableOn::TagsHelper
+
 
   # Render a partial only one time.
   #

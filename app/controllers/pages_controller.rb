@@ -26,6 +26,6 @@ class PagesController < ApplicationController
 
   def home
     @has_search = true
-    @tags = Tag.all
+    @tags = Newsletter.tag_counts_on(:tags)
   end
 end
