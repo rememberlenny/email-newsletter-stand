@@ -206,7 +206,14 @@ CREATE TABLE newsletters (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     image_url character varying(255),
-    featured_image_id character varying(255)
+    featured_image_id character varying(255),
+    cached_votes_total integer DEFAULT 0,
+    cached_votes_score integer DEFAULT 0,
+    cached_votes_up integer DEFAULT 0,
+    cached_votes_down integer DEFAULT 0,
+    cached_weighted_score integer DEFAULT 0,
+    cached_weighted_total integer DEFAULT 0,
+    cached_weighted_average double precision DEFAULT 0.0
 );
 
 
@@ -620,6 +627,55 @@ CREATE INDEX index_curated_posts_on_curation_id ON curated_posts USING btree (cu
 
 
 --
+-- Name: index_newsletters_on_cached_votes_down; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_newsletters_on_cached_votes_down ON newsletters USING btree (cached_votes_down);
+
+
+--
+-- Name: index_newsletters_on_cached_votes_score; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_newsletters_on_cached_votes_score ON newsletters USING btree (cached_votes_score);
+
+
+--
+-- Name: index_newsletters_on_cached_votes_total; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_newsletters_on_cached_votes_total ON newsletters USING btree (cached_votes_total);
+
+
+--
+-- Name: index_newsletters_on_cached_votes_up; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_newsletters_on_cached_votes_up ON newsletters USING btree (cached_votes_up);
+
+
+--
+-- Name: index_newsletters_on_cached_weighted_average; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_newsletters_on_cached_weighted_average ON newsletters USING btree (cached_weighted_average);
+
+
+--
+-- Name: index_newsletters_on_cached_weighted_score; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_newsletters_on_cached_weighted_score ON newsletters USING btree (cached_weighted_score);
+
+
+--
+-- Name: index_newsletters_on_cached_weighted_total; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_newsletters_on_cached_weighted_total ON newsletters USING btree (cached_weighted_total);
+
+
+--
 -- Name: index_rails_admin_histories; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -741,4 +797,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151117193230');
 INSERT INTO schema_migrations (version) VALUES ('20151117193231');
 
 INSERT INTO schema_migrations (version) VALUES ('20151118223815');
+
+INSERT INTO schema_migrations (version) VALUES ('20151118233314');
 
