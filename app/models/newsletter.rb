@@ -4,14 +4,11 @@ class Newsletter < ActiveRecord::Base
   include AlgoliaSearch
 
   algoliasearch do
-    add_attribute :extra_tags
+    add_attribute :featured_image_url
   end
 
-  def extra_tags
-    attribute :_tags do
-      name_will_change!
-      tags.map(&:name)
-    end
+  def featured_image_url
+    Refile.attachment_url(self, :featured_image, :fill, 300, 300, format: "jpg", host: Refile.host)
   end
 
   def self.get_ograph_image id
