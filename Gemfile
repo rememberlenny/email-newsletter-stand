@@ -36,6 +36,7 @@ gem 'haml-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'headjs-rails'
+gem 'hogan_assets'
 
 # Javascript
 gem 'jquery-rails'

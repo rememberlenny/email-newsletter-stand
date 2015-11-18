@@ -20,7 +20,10 @@
 #= require rails_confirm_dialog
 #= require jquery.scrollto
 #= require cocoon
-#= require algolia/algoliasearch.min
+#= require algolia/v3/algoliasearch.min
+#= require algolia/typeahead.jquery
+#= require hogan
+#= require search/search.js
 
 # Add error class to .avatar images if they fail to load
 # See avatar.scss and _avatar.html.haml
