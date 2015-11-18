@@ -3,7 +3,7 @@ class Newsletter < ActiveRecord::Base
   acts_as_taggable
   include AlgoliaSearch
 
-  algoliasearch do
+  algoliasearch per_environment: true do
     add_attribute :featured_image_url
   end
 
