@@ -14,21 +14,22 @@
     = yield :head
     = render 'layouts/airbrake'
   %body{class: "controller__#{controller_name} action__#{action_name}"}
-    .col-small-12
-      .errors__container
-        = render 'layouts/messages'
-    .col-md-3.col-small-12
-      = render 'layouts/sidebar'
-      = render 'layouts/navigation'
-      %footer.page__footer
-        - if content_for? :footer
-          = yield :footer
-        - else
-          = render 'layouts/footer'
-    .col-md-9.col-small-12
-      - if defined? @has_search
-        = render 'layouts/search_large'
-      = yield
-      %footer
+    .site-wrapper
+      .col-small-12
+        .errors__container
+          = render 'layouts/messages'
+      .col-md-3.col-small-12
+        = render 'layouts/sidebar'
+        = render 'layouts/navigation'
+        %footer.page__footer
+          - if content_for? :footer
+            = yield :footer
+          - else
+            = render 'layouts/footer'
+      .col-md-9.col-small-12
+        - if defined? @has_search
+          = render 'layouts/search_large'
+        = yield
+        %footer
     = render 'layouts/analytics'
     = render 'layouts/javascripts'

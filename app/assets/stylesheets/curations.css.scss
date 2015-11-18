@@ -8,15 +8,16 @@
 }
 
 .item-container:hover .item-title{
-  transform: translateX(0%);
+  transform: translateY(0%);
 }
 
 .item-title{
+  margin: 0px;
 -webkit-transition: all .2s ease-in;
    -moz-transition: all .2s ease-in;
         transition: all .2s ease-in;
   position: absolute;
-  transform: translateX(-100%);
+  transform: translateY(200%);
   background: rgba(0,0,0,.3);
   bottom: 0px;
 }
