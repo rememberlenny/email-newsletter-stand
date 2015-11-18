@@ -404,6 +404,43 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 
 
 --
+-- Name: votes; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE votes (
+    id integer NOT NULL,
+    votable_id integer,
+    votable_type character varying(255),
+    voter_id integer,
+    voter_type character varying(255),
+    vote_flag boolean,
+    vote_scope character varying(255),
+    vote_weight integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: votes_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE votes_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: votes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE votes_id_seq OWNED BY votes.id;
+
+
+--
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -471,6 +508,13 @@ ALTER TABLE ONLY tags ALTER COLUMN id SET DEFAULT nextval('tags_id_seq'::regclas
 --
 
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY votes ALTER COLUMN id SET DEFAULT nextval('votes_id_seq'::regclass);
 
 
 --
@@ -554,6 +598,14 @@ ALTER TABLE ONLY users
 
 
 --
+-- Name: votes_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY votes
+    ADD CONSTRAINT votes_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: index_authentications_on_provider; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -617,6 +669,20 @@ CREATE UNIQUE INDEX index_users_on_unlock_token ON users USING btree (unlock_tok
 
 
 --
+-- Name: index_votes_on_votable_id_and_votable_type_and_vote_scope; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_votes_on_votable_id_and_votable_type_and_vote_scope ON votes USING btree (votable_id, votable_type, vote_scope);
+
+
+--
+-- Name: index_votes_on_voter_id_and_voter_type_and_vote_scope; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_votes_on_voter_id_and_voter_type_and_vote_scope ON votes USING btree (voter_id, voter_type, vote_scope);
+
+
+--
 -- Name: taggings_idx; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -660,10 +726,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151117141521');
 
 INSERT INTO schema_migrations (version) VALUES ('20151117141726');
 
-INSERT INTO schema_migrations (version) VALUES ('20151117152455');
-
-INSERT INTO schema_migrations (version) VALUES ('20151117152456');
-
 INSERT INTO schema_migrations (version) VALUES ('20151117152457');
 
 INSERT INTO schema_migrations (version) VALUES ('20151117191609');
@@ -677,4 +739,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151117193229');
 INSERT INTO schema_migrations (version) VALUES ('20151117193230');
 
 INSERT INTO schema_migrations (version) VALUES ('20151117193231');
+
+INSERT INTO schema_migrations (version) VALUES ('20151118223815');
 

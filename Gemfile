@@ -82,6 +82,7 @@ gem 'sinatra', require: false
 gem 'addressable'
 gem 'settingslogic'
 gem 'acts-as-taggable-on', '~> 3.4'
+gem 'acts_as_votable', '~> 0.10.0'
 
 # Uploads
 gem "refile", require: "refile/rails"
