@@ -14,6 +14,22 @@
   }
 }
 
+.side-search input{
+  position: relative;
+  vertical-align: top;
+  font-size: 2-px;
+  font-weight: 100;
+  padding: 5px 0 3px;
+  border: none;
+  border-bottom: 5px solid #eee;
+  width: 100%;
+  transition: border-color .3s ease-in;
+  outline: 0;
+  &:focus {
+      border-color: #ed5565;
+  }
+}
+
 .search-large{
   margin-bottom: 20px;
 }
