@@ -1,8 +1,6 @@
 - item = item ? item : local[:item]
-.item-container
+%div.item-container
   = link_to item do
     = image_tag attachment_url(item, :featured_image, :fill, 300, 300, format: "jpg")
-  %div.bootstrap-tagsinput
-    = raw item.tag_list.map { |t| link_to t, tag_path(t), class: 'tag label label-info' }.join(' ')
-  %h3
+  %h3.item-title
     = link_to item[:name], item

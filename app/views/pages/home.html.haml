@@ -1,6 +1,8 @@
 %div.row
-  - render_curated_row('home').each do |item|
-    = render 'newsletters/element', :item => item
+  %ul.block-grid-md-4.block-grid-lg-5.block-grid-sm-2
+    - render_curated_row('home').each do |item|
+      %li.element-module.element-container
+        = render 'newsletters/element_notag', :item => item
 
 %div.row
   %h2
