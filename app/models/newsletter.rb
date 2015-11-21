@@ -1,5 +1,6 @@
 class Newsletter < ActiveRecord::Base
   attachment :featured_image
+  after_create :generate_uid
   acts_as_taggable
   acts_as_votable
   include AlgoliaSearch
@@ -31,4 +32,24 @@ class Newsletter < ActiveRecord::Base
       n.save
     end
   end
+
+  def generate_uid
+    uid = SecureRandom.hex(4) + '-' + SecureRandom.hex(6) + '-' + SecureRandom.hex(4)
+    checked = Newsletter.check_is_unique_uid(uid)
+    if checked == true
+      self.uid = uid
+      self.save
+    else
+      generate_uid
+    end
+  end
+
+  def self.check_is_unique_uid uid
+    uu = Newsletter.where(uid: uid)
+    if uu.count == 0
+      return true
+    end
+    return false
+  end
+
 end
