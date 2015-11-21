@@ -12,13 +12,13 @@ common: &common
   app_name: 'emailnewsletterpost'
 
   social:
-    facebook: 'https://www.facebook.com/simple10'
-    twitter: 'https://twitter.com/joejohnston'
-    google_plus: 'https://plus.google.com/+JoeJohnstonSF'
-    linkedin: 'http://www.linkedin.com/in/startupjoe'
+    facebook: 'https://www.facebook.com/rememberlenny'
+    twitter: 'https://twitter.com/rememberlenny'
+    google_plus: 'https://plus.google.com/+rememberlenny'
+    linkedin: 'http://www.linkedin.com/in/rememberlenny'
 
   contact:
-    email: 'joe@example.com'
+    email: 'rememberlenny@gmail.com'
     phone: '555-555-5555'
 
   session:
@@ -31,7 +31,7 @@ common: &common
 
   mail:
     layout: 'emails/email'
-    from: 'from@example.com'
+    from: 'noreply@emailnewsletterstand.com'
 
 
 # Default ENV vars.
@@ -43,7 +43,7 @@ default_env: &default_env
 
   # Host used to determine direct requests vs CDN.
   # See RobotsController.
-  CANONICAL_HOST: 'emailnewsletterpost.com'
+  CANONICAL_HOST: 'emailnewsletterstand.com'
 
   AUTH_FACEBOOK_KEY: '201539556694091'
   AUTH_FACEBOOK_SECRET: '80ae1dc93961b7f9a79265af0eeca698'

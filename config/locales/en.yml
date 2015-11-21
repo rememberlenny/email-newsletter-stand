@@ -26,11 +26,11 @@
 
 en:
   brand:
-    name: 'Email Newsletter Post'
+    name: 'Email Newsletter Stand'
 
   emails:
     welcome:
-      subject: 'Welcome to Email Newsletter Post'
+      subject: 'Welcome to Email Newsletter Stand'
 
   auth:
     login:
