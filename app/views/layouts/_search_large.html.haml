@@ -1,3 +1,28 @@
 .search-large
   %input.search-field.typeahead{:placeholder => "Search for email newsletters", :spellcheck => "false", :type => "text"}/
+
+  .col-md-9.text-center.col-centered.tag-container
+    %ul.block-grid-md-4
+      %li.tag-box
+        %h3
+          =link_to 'News', tag_path('News')
+      %li.tag-box
+        %h3
+          =link_to 'Startups', tag_path('Startups')
+      %li.tag-box
+        %h3
+          =link_to 'International', tag_path('International')
+      %li.tag-box
+        %h3
+          =link_to 'Design', tag_path('Design')
+    %ul.block-grid-md-3
+      %li.tag-box
+        %h3
+          =link_to 'Entertainment', tag_path('Entertainment')
+      %li.tag-box
+        %h3
+          =link_to 'Programming', tag_path('Programming')
+      %li.tag-box
+        %h3
+          =link_to 'Entrepreneurship', tag_path('Entrepreneurship')
 %hr
