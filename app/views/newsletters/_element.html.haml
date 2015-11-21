@@ -1,9 +1,15 @@
 - item = item ? item : local[:item]
-.item-container
-  = link_to item do
-    = image_tag attachment_url(item, :featured_image, :fill, 300, 300, format: "jpg")
-  %h3
-    = link_to item[:name], item
+.item-container.row
+  - if !item.featured_image.nil?
+    .col-md-3
+      = link_to item do
+        = image_tag attachment_url(item, :featured_image, :fill, 300, 300, format: "jpg")
+    .col-md-9
+      %h3
+        = link_to item[:name], item
+  - else
+    %h3
+      = link_to item[:name], item
   %p
     Most recent:
     = recent_email(item).subject + ', ' + recent_email(item).created_at.to_s
