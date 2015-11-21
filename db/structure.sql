@@ -195,6 +195,46 @@ ALTER SEQUENCE curations_id_seq OWNED BY curations.id;
 
 
 --
+-- Name: emails; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE emails (
+    id integer NOT NULL,
+    newsletter_id integer,
+    "to" character varying(255),
+    "from" character varying(255),
+    subject text,
+    body text,
+    raw_text text,
+    raw_html text,
+    raw_body text,
+    headers text,
+    raw_headers text,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: emails_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE emails_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: emails_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE emails_id_seq OWNED BY emails.id;
+
+
+--
 -- Name: newsletters; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -487,6 +527,13 @@ ALTER TABLE ONLY curations ALTER COLUMN id SET DEFAULT nextval('curations_id_seq
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY emails ALTER COLUMN id SET DEFAULT nextval('emails_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY newsletters ALTER COLUMN id SET DEFAULT nextval('newsletters_id_seq'::regclass);
 
 
@@ -563,6 +610,14 @@ ALTER TABLE ONLY curated_posts
 
 ALTER TABLE ONLY curations
     ADD CONSTRAINT curations_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: emails_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY emails
+    ADD CONSTRAINT emails_pkey PRIMARY KEY (id);
 
 
 --
@@ -802,4 +857,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151118223815');
 INSERT INTO schema_migrations (version) VALUES ('20151118233314');
 
 INSERT INTO schema_migrations (version) VALUES ('20151121022658');
+
+INSERT INTO schema_migrations (version) VALUES ('20151121023131');
 
