@@ -14,9 +14,12 @@
       %b Tags:
       = raw @newsletter.tag_list.map { |t| link_to t, tag_path(t), class: 'tag label label-info' }.join(' ')
 
-    - if current_user && current_user.is_admin?
+    - if current_user && current_user.is_curator?
       = link_to 'Edit', edit_newsletter_path(@newsletter)
       \|
     = link_to 'Back', newsletters_path, class: 'btn btn-primary'
+    - if current_user && current_user.is_curator?
+      %div
+        = @newsletter.uid + '@emailnewsletterstand.com'
   %div.col-md-4
     = image_tag attachment_url(@newsletter, :featured_image, :fill, 300, 300, format: "jpg")
