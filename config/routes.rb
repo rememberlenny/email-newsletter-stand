@@ -1,7 +1,7 @@
 # Route prefixes use a single letter to allow for vanity urls of two or more characters
 Rails.application.routes.draw do
   resources :curations
-  resources :newsletters
+  resources :newsletters, path: 'n'
 
   # Email receiver
   mount_griddler
