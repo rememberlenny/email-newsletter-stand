@@ -23,6 +23,6 @@ module PagesHelper
     newsletter_ids.each do |id|
       newsletters << Newsletter.find(id)
     end
-    return newsletters
+    return newsletters.slice(0, 7)
   end
 end

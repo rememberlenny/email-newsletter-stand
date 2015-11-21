@@ -37,6 +37,7 @@ gem "groupdate"
 gem "active_median"
 gem "hightop"
 gem "chartkick"
+gem 'kaminari'
 # gem 'schema_plus'             # add better index and foreign key support
 # gem 'jbuilder'
 

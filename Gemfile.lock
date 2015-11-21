@@ -464,6 +464,7 @@ DEPENDENCIES
   intercom-rails
   jquery-rails
   jquery-turbolinks
+  kaminari
   memcachier
   meta-tags
   meta_request

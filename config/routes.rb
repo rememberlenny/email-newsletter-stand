@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get '/terms' => 'pages#terms', as: 'terms'
   get '/privacy' => 'pages#privacy', as: 'privacy'
   get '/about' => 'pages#about', as: 'about'
+  get '/status' => 'pages#status', as: 'status'
 
   # OAuth
   oauth_prefix = Rails.application.config.auth.omniauth.path_prefix

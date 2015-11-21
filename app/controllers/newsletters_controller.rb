@@ -10,7 +10,7 @@ class NewslettersController < ApplicationController
     if params[:tag]
       @newsletters = Newsletter.tagged_with(params[:tag])
     else
-      @newsletters = Newsletter.all
+      @newsletters = Newsletter.all.page params[:page]
     end
     respond_with(@newsletters)
   end

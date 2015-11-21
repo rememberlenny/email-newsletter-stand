@@ -18,3 +18,4 @@
   - if current_user && current_user.is_admin?
     = link_to 'New Newsletter', new_newsletter_path
 
+  = paginate @newsletters
