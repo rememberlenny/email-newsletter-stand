@@ -6,7 +6,7 @@ module PagesHelper
     if !curation.nil?
       results = CuratedPost.where(curation_id: curation.id)
       results.each do |post|
-        curation_post << Newsletter.find(post.newsletter_id)
+        curation_post << Newsletter.friendly.find(post.newsletter_id)
       end
     end
     return curation_post

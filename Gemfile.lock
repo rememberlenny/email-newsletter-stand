@@ -119,6 +119,8 @@ GEM
     font-awesome-rails (4.2.0.0)
       railties (>= 3.2, < 5.0)
     formatador (0.2.5)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     git-version-bump (0.15.1)
     griddler (1.2.1)
       htmlentities
@@ -439,6 +441,7 @@ DEPENDENCIES
   devise-async
   factory_girl_rails
   ffaker
+  friendly_id (~> 5.1.0)
   griddler
   griddler-sendgrid
   guard-rspec

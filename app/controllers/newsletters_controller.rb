@@ -44,7 +44,7 @@ class NewslettersController < ApplicationController
 
   private
     def set_newsletter
-      @newsletter = Newsletter.find(params[:id])
+      @newsletter = Newsletter.friendly.find(params[:id])
     end
 
     def newsletter_params

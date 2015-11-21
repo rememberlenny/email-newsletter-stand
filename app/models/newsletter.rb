@@ -1,4 +1,6 @@
 class Newsletter < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: :slugged
   attachment :featured_image
   after_create :generate_uid
   acts_as_taggable
@@ -25,7 +27,7 @@ class Newsletter < ActiveRecord::Base
   end
 
   def self.get_ograph_image id
-    n = Newsletter.find id
+    n = Newsletter.friendly.find id
     og = OpenGraph.new(n.url)
     if n.image_url.nil?
       n.image_url = og.images.first

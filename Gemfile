@@ -87,6 +87,7 @@ gem 'addressable'
 gem 'settingslogic'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'friendly_id', '~> 5.1.0'
 
 # Uploads
 gem "refile", require: "refile/rails"
