@@ -213,7 +213,8 @@ CREATE TABLE newsletters (
     cached_votes_down integer DEFAULT 0,
     cached_weighted_score integer DEFAULT 0,
     cached_weighted_total integer DEFAULT 0,
-    cached_weighted_average double precision DEFAULT 0.0
+    cached_weighted_average double precision DEFAULT 0.0,
+    uid character varying(255)
 );
 
 
@@ -799,4 +800,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151117193231');
 INSERT INTO schema_migrations (version) VALUES ('20151118223815');
 
 INSERT INTO schema_migrations (version) VALUES ('20151118233314');
+
+INSERT INTO schema_migrations (version) VALUES ('20151121022658');
 
