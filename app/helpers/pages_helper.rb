@@ -19,7 +19,7 @@ module PagesHelper
 
   def render_recent_newsletters num
     newsletters = []
-    newsletter_ids = Email.select(:newsletter_id).map(&:newsletter_id).uniq
+    newsletter_ids = Email.order('created_at DESC').select(:newsletter_id).map(&:newsletter_id).uniq
     newsletter_ids.each do |id|
       newsletters << Newsletter.find(id)
     end
