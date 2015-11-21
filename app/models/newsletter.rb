@@ -14,7 +14,7 @@ class Newsletter < ActiveRecord::Base
 
   def self.find_by_email email
     uid = email.split('@emailnewsletterpost.com')
-    emails = Newsletter.where(uid[0])
+    emails = Newsletter.where(uid: uid[0])
     return emails[0]
   end
 
@@ -36,7 +36,7 @@ class Newsletter < ActiveRecord::Base
   end
 
   def generate_uid
-    uid = SecureRandom.hex(4) + '-' + SecureRandom.hex(6) + '-' + SecureRandom.hex(4)
+    uid = SecureRandom.hex(6)
     checked = Newsletter.check_is_unique_uid(uid)
     if checked == true
       self.uid = uid
