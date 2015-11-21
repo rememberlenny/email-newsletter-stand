@@ -30,6 +30,12 @@
       .col-md-9.col-small-12
         - if defined? @has_search
           .row
+            .hero-lead
+              %h2.lead
+                .image-container.col-md-1.col-sm-3
+                  =image_tag 'email.png'
+                Curating and monitoring the best <br>content arriving in your inbox.
+            %hr
             = render 'layouts/search_large'
         = yield
         .main-footer
