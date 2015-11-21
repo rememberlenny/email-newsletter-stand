@@ -12,8 +12,17 @@ module PagesHelper
     return curation_post
   end
 
+  def recent_email item
+    ee = Email.where(newsletter_id: item.id)
+    return ee.last
+  end
+
   def render_recent_newsletters num
-    newsletters = Newsletter.all
+    newsletters = []
+    newsletter_ids = Email.select(:newsletter_id).map(&:newsletter_id).uniq
+    newsletter_ids.each do |id|
+      newsletters << Newsletter.find(id)
+    end
     return newsletters
   end
 end

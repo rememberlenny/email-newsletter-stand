@@ -2,8 +2,11 @@
 .item-container
   = link_to item do
     = image_tag attachment_url(item, :featured_image, :fill, 300, 300, format: "jpg")
-  %div.bootstrap-tagsinput
-    = raw item.tag_list.map { |t| link_to t, tag_path(t), class: 'tag label label-info' }.join(' ')
   %h3
     = link_to item[:name], item
-  = render 'widgets/vote'
+  %p
+    Most recent:
+    = recent_email(item).subject + ', ' + recent_email(item).created_at.to_s
+  %div.bootstrap-tagsinput
+    = raw item.tag_list.map { |t| link_to t, tag_path(t), class: 'tag label label-info' }.join(' ')
+  =# render 'widgets/vote'
