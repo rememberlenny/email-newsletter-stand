@@ -6,7 +6,7 @@ class EmailProcessor
   def process
     newsletter = Newsletter.find_by_email(@email.to[0][:token])
     if !newsletter.nil?
-      @email.pry
+      # @email.pry
       Email.create(
         newsletter_id: newsletter.id,
         to: @email.to[0][:email],
