@@ -3,6 +3,6 @@ class ChartsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def emails_sent_by_day
-    render json: Email.group_by_hour(:created_at).count
+    render json: Email.group_by_day(:created_at).count
   end
 end
