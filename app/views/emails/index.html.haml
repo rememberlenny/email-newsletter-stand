@@ -1,0 +1,4 @@
+- urls = %r{(?:https?|ftp|mailto)://\S+}i
+- @emails.each do |email|
+  %p
+    = raw email.body.gsub urls, '<a href="\0">\0</a>'

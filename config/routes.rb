@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   mount_griddler
 
   get 't/:tag', to: 'newsletters#index', as: :tag
+  get 'e/', to: 'emails#index', as: :emails
 
   if defined? Sidekiq
     require 'sidekiq/web'

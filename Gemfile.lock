@@ -75,6 +75,7 @@ GEM
       json
     celluloid (0.15.2)
       timers (~> 1.1.0)
+    chartkick (1.4.1)
     cocoon (1.2.6)
     coderay (1.1.0)
     coffee-rails (4.1.0)
@@ -127,6 +128,8 @@ GEM
       rails (>= 3.2.0)
     griddler-sendgrid (0.0.1)
       griddler
+    groupdate (2.5.0)
+      activesupport (>= 3)
     guard (2.6.1)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -435,6 +438,7 @@ DEPENDENCIES
   bootstrap-sass
   cancancan (~> 1.9)
   capybara-webkit
+  chartkick
   cocoon
   coffee-rails
   dalli
@@ -446,6 +450,7 @@ DEPENDENCIES
   friendly_id (~> 5.1.0)
   griddler
   griddler-sendgrid
+  groupdate
   guard-rspec
   haml-rails
   headjs-rails
