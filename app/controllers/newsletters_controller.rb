@@ -8,7 +8,7 @@ class NewslettersController < ApplicationController
 
   def index
     if params[:tag]
-      @newsletters = Newsletter.tagged_with(params[:tag])
+      @newsletters = Newsletter.tagged_with(params[:tag]).page params[:page]
     else
       @newsletters = Newsletter.all.page params[:page]
     end
