@@ -1,7 +1,7 @@
 class NewslettersController < ApplicationController
   respond_to :html, :json
-  before_action :set_emails, only: [:show]
   before_action :set_newsletter, only: [:show, :edit, :update, :destroy]
+  before_action :set_emails, only: [:show]
   load_and_authorize_resource only: [:edit, :update, :destroy]
   skip_authorization_check only: [:show, :index]
   skip_before_action :authenticate_user!, only: [:show, :index]
