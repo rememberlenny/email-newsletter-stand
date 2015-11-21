@@ -123,7 +123,7 @@ group :development, :test do
   # gem 'zeus'                  # required in gemfile for guard
 
   # Debugging
-  # gem 'pry'                   # better than irb
+  gem 'pry'                   # better than irb
   # gem 'byebug'                # ruby 2.0 debugger with built-in pry
   gem 'pry-rails'               # adds rails specific commands to pry
   gem 'pry-byebug'              # add debugging commands to pry

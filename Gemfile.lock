@@ -462,6 +462,7 @@ DEPENDENCIES
   opengraph_parser
   pg
   premailer-rails
+  pry
   pry-byebug
   pry-rails
   pry-stack_explorer

@@ -4,7 +4,7 @@ class EmailProcessor
   end
 
   def process
-    newsletter = Newsletter.find_by_email(@email.from[:email])
+    newsletter = Newsletter.find_by_email(@email.to[0][:token])
     Email.create(
       newsletter_id: newsletter.id,
       to: to,
