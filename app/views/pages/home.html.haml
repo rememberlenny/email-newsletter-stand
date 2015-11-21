@@ -1,8 +1,6 @@
+
 %div.row
-  %ul.block-grid-md-4.block-grid-lg-3.block-grid-sm-2
-    - tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class|
-      %span{class: css_class}
-        = tag.name
+  = line_chart emails_sent_by_day_chart_path
 
 
 %div.row

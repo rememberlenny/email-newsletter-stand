@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get 't/:tag', to: 'newsletters#index', as: :tag
   get 'e/', to: 'emails#index', as: :emails
 
+  # Charts
+  get 'charts/emails_sent_by_day', to: 'charts#emails_sent_by_day', as: :emails_sent_by_day_chart
+
   if defined? Sidekiq
     require 'sidekiq/web'
     authenticate :user, lambda {|u| u.is_admin? } do
