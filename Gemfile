@@ -23,6 +23,7 @@ gem 'griddler-sendgrid'
 # Monitoring
 gem 'rack-timeout', '~> 0.1.0beta4'
 gem 'newrelic_rpm'
+gem 'intercom-rails'
 gem 'airbrake', '~> 3.2.1'         # use with airbrake.io or errbit
 # gem 'airbrake_user_attributes'  # use with self-hosted errbit; see config/initializers/airbrake.rb
 # gem 'rack-google-analytics'
