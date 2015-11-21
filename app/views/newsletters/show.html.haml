@@ -25,7 +25,7 @@
     %div
       - @emails.each do |email|
         %h3
-          = email.subject + ': ' + email.created_at
+          = email.subject + ': ' + email.created_at.to_s
 
   %div.col-md-4
     = image_tag attachment_url(@newsletter, :featured_image, :fill, 300, 300, format: "jpg")
