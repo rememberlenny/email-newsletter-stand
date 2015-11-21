@@ -9,6 +9,12 @@ class Newsletter < ActiveRecord::Base
     add_attribute :page_url
   end
 
+  def self.find_by_email email
+    uid = email.split('@emailnewsletterpost.com')
+    emails = Newsletter.where(uid[0])
+    return emails[0]
+  end
+
   def page_url
     Rails.application.routes.url_helpers.newsletter_path(self)
   end

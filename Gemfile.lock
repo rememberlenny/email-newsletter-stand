@@ -120,6 +120,11 @@ GEM
       railties (>= 3.2, < 5.0)
     formatador (0.2.5)
     git-version-bump (0.15.1)
+    griddler (1.2.1)
+      htmlentities
+      rails (>= 3.2.0)
+    griddler-sendgrid (0.0.1)
+      griddler
     guard (2.6.1)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -434,6 +439,8 @@ DEPENDENCIES
   devise-async
   factory_girl_rails
   ffaker
+  griddler
+  griddler-sendgrid
   guard-rspec
   haml-rails
   headjs-rails

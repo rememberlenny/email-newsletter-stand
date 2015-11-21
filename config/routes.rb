@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   resources :curations
   resources :newsletters
 
+  # Email receiver
+  mount_griddler
+
   get 't/:tag', to: 'newsletters#index', as: :tag
 
   if defined? Sidekiq

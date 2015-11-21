@@ -16,6 +16,10 @@ gem 'terminal-notifier', group: [:development]
 # Search
 gem 'algoliasearch-rails'
 
+# Email
+gem 'griddler'
+gem 'griddler-sendgrid'
+
 # Monitoring
 gem 'rack-timeout', '~> 0.1.0beta4'
 gem 'newrelic_rpm'
