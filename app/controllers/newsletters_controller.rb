@@ -1,5 +1,6 @@
 class NewslettersController < ApplicationController
   respond_to :html, :json
+  before_action :set_emails, only: [:show]
   before_action :set_newsletter, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource only: [:edit, :update, :destroy]
   skip_authorization_check only: [:show, :index]
@@ -45,6 +46,10 @@ class NewslettersController < ApplicationController
   private
     def set_newsletter
       @newsletter = Newsletter.friendly.find(params[:id])
+    end
+
+    def set_emails
+      @emails = Email.where(newsletter_id: @newsletter.id)
     end
 
     def newsletter_params

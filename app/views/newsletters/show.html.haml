@@ -21,5 +21,11 @@
     - if current_user && current_user.is_curator?
       %div
         = @newsletter.uid + '@emailnewsletterstand.com'
+
+    %div
+      - @emails.each do |email|
+        %h3
+          = email.subject + ': ' + email.created_at
+
   %div.col-md-4
     = image_tag attachment_url(@newsletter, :featured_image, :fill, 300, 300, format: "jpg")
