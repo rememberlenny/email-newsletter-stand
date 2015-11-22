@@ -4,7 +4,7 @@
   %ul.block-grid-sm-1
     - render_recent_newsletters(8).each do |newsletter|
       %li
-        = render 'newsletters/element', :local => { :item => newsletter, :has_tags => false }
+        = render 'newsletters/element_notag', :local => { :item => newsletter, :has_tags => false }
 
 %div.row
   = link_to 'See more newsletters', newsletters_path, class: 'btn btn-block btn-lg btn-inverse'
