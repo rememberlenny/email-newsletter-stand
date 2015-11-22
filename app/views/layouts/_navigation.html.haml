@@ -1,16 +1,5 @@
 %div{role: 'navigation'}
   %ul.list-unstyled
-    %li= link_to 'All Newsletters', newsletters_path
-    %li= link_to 'Design Newsletters', tag_path(tag: 'design')
-    %li= link_to 'News Newsletters', tag_path(tag: 'news')
-    %li= link_to 'Startup Newsletters', tag_path(tag: 'entrepreneurship')
-    %li= link_to 'International News Newsletters', tag_path(tag: 'International')
-    %li= link_to 'Programming Newsletters', tag_path(tag: 'programming')
-    %li= link_to 'Fun Newsletters', tag_path(tag: 'entertainment')
-    %li= link_to 'Startup Newsletters', tag_path(tag: 'entrepreneurship')
-    %li <br>
-    %li= link_to 'About', about_path
-    %li= link_to 'Status', status_path
     - if user_signed_in?
       %li
       - if current_user.is_admin?
@@ -20,3 +9,26 @@
     - unless user_signed_in?
       %li= link_to I18n.t('auth.signup.link'), new_user_registration_path
       %li= link_to I18n.t('auth.login.link'), new_user_session_path
+    %li= link_to 'About', about_path
+    %li= link_to 'Status', status_path
+    %li= link_to 'Contact', contact_path
+    %li <br>
+    %li
+      %h4
+        = link_to 'All Newsletters', newsletters_path
+    %li
+      = link_to 'Design Newsletters', tag_path(tag: 'design')
+    %li
+      = link_to 'News Newsletters', tag_path(tag: 'news')
+    %li
+      = link_to 'Media Newsletters', tag_path(tag: 'media')
+    %li
+      = link_to 'International News Newsletters', tag_path(tag: 'International')
+    %li
+      = link_to 'Programming Newsletters', tag_path(tag: 'programming')
+    %li
+      = link_to 'Fun Newsletters', tag_path(tag: 'entertainment')
+    %li
+      = link_to 'Startup Newsletters', tag_path(tag: 'startup')
+    %li
+      = link_to 'Entrepreneurship Newsletters', tag_path(tag: 'entrepreneurship')
