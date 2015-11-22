@@ -12,7 +12,18 @@
     %li= link_to 'About', about_path
     %li= link_to 'Status', status_path
     %li= link_to 'Contact', contact_path
-    %li <br>
+
+  .panel
+    %form{:action => "https://tinyletter.com/emailnewsletterstand", :method => "post", :onsubmit => "window.open('https://tinyletter.com/emailnewsletterstand', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true", :style => "padding:3px;text-align:left;", :target => "popupwindow"}
+      %h4
+        = link_to 'https://tinyletter.com/emailnewsletterstand' do
+          We have a newsletter too
+      %p
+        %input#tlemail{:name => "email", :type => "text", :class => 'form-control', :placeholder => 'Your email'}/
+      %input{:name => "embed", :type => "hidden", :value => "1"}/
+      %input{:type => "submit", :value => "Stay in the know", :class => 'btn btn-primary'}/
+
+  %ul.list-unstyled
     %li
       %h4
         = link_to 'All Newsletters', newsletters_path
