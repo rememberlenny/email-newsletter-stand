@@ -1,6 +1,9 @@
 = link_to root_path do
-  %h1
-    = I18n.t('brand.name')
-
+  .hero-lead
+    %h1
+      = I18n.t('brand.name')
+    %h2.lead
+      Curating and monitoring the best <br>content arriving in your inbox.
+  %hr
 - if !defined? @has_search
   = render 'layouts/search'
