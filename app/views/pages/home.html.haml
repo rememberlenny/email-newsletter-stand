@@ -1,10 +1,12 @@
 %div.row
-  %h2
-    Most Recent
-  %ul.block-grid-sm-1
-    - render_recent_newsletters(8).each do |newsletter|
-      %li
-        = render 'newsletters/element_notag', :local => { :item => newsletter, :has_tags => false }
+  .col-md-12
+    %h2
+      Most Recent
+    %ul.block-grid-sm-1
+      - render_recent_newsletters(8).each do |newsletter|
+        %li
+          = render 'newsletters/element_notag', :local => { :item => newsletter, :has_tags => false }
 
-%div.row
-  = link_to 'See more newsletters', newsletters_path, class: 'btn btn-block btn-lg btn-inverse'
+.row
+  .col-md-12
+    = link_to 'See more newsletters', newsletters_path, class: 'btn btn-block btn-lg btn-inverse'
