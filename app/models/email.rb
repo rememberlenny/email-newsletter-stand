@@ -3,7 +3,7 @@ class Email < ActiveRecord::Base
   after_create :check_for_welcome
 
   def check_for_welcome
-    subj = self.subject.downcase
+    flagged = false
     flags = [
       'for subscribing',
       'welcome!',
@@ -17,10 +17,13 @@ class Email < ActiveRecord::Base
       'confirm your',
     ]
     flags.each do |flag|
-      if subj.index(flag) != nil
-        self.admin_email = true
-        self.save
+      if self.subject.downcase.index(flag) != nil
+        flagged = true;
       end
+    end
+    if flagged == true
+      self.admin_email = true
+      self.save
     end
   end
 
