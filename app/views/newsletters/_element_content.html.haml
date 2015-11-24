@@ -4,4 +4,4 @@
   = link_to item[:name], item
   - @emails.each do |email|
     %p
-      = email.subject + ', ' + email.created_at.to_s
+      = email.subject + ', ' + time_ago_in_words(email.created_at)

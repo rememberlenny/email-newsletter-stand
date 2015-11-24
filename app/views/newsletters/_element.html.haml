@@ -10,7 +10,7 @@
           = link_to item[:name], item
         %p
           Most recent:
-          = recent_email(item).subject + ', ' + recent_email(item).created_at.to_s
+          = recent_email(item).subject + ', ' + time_ago_in_words(recent_email(item).created_at)
         %div.bootstrap-tagsinput
           = raw item.tag_list.map { |t| link_to t, tag_path(t), class: 'tag label label-info' }.join(' ')
     - else
@@ -18,7 +18,7 @@
         = link_to item[:name], item
       %p
         Most recent:
-        = recent_email(item).subject + ', ' + recent_email(item).created_at.to_s
+        = recent_email(item).subject + ', ' + time_ago_in_words(recent_email(item).created_at)
       %div.bootstrap-tagsinput
         = raw item.tag_list.map { |t| link_to t, tag_path(t), class: 'tag label label-info' }.join(' ')
     =# render 'widgets/vote'
