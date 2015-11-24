@@ -49,7 +49,7 @@ class NewslettersController < ApplicationController
     end
 
     def set_emails
-      @emails = Email.where(newsletter_id: @newsletter.id).reverse
+      @emails = Email.where(newsletter_id: @newsletter.id).where.not(admin_email: true).reverse
     end
 
     def newsletter_params

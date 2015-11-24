@@ -23,5 +23,9 @@ class Email < ActiveRecord::Base
       end
     end
   end
+
+  def self.get_recent id, count
+    return Email.where(newsletter_id: id).where.not(admin_email: true).limit(count).reverse
+  end
 end
 
