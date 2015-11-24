@@ -1,5 +1,5 @@
 - item = item ? item : local[:item]
-- @emails = Email.where(newsletter_id: item.id)
+- @emails = Email.where(newsletter_id: item.id).where.not(admin_email: true)
 %h3
   = link_to item[:name], item
   - @emails.each do |email|
