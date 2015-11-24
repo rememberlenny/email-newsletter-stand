@@ -12,11 +12,6 @@ module PagesHelper
     return curation_post
   end
 
-  def recent_email item
-    ee = Email.where(newsletter_id: item.id)
-    return ee.last
-  end
-
   def render_recent_newsletters num
     newsletters = []
     newsletter_ids = Email.order('created_at DESC').select(:newsletter_id).map(&:newsletter_id).uniq

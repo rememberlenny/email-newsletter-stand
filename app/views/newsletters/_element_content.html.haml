@@ -1,0 +1,7 @@
+- item = item ? item : local[:item]
+- @emails = Email.where(newsletter_id: item.id)
+%h3
+  = link_to item[:name], item
+  - @emails.each do |email|
+    %p
+      = email.subject + ', ' + email.created_at.to_s

@@ -1,28 +1,29 @@
-.col-md-12
-  .row
-    %h2.text-center
-      Popular newsletters topics
-.col-md-9.text-center.col-centered.tag-container
-  %ul.block-grid-md-4
-    %li.tag-box
-      %h3
-        =link_to 'Fun', tag_path('Entertainment'), class: 'btn btn-inverse btn-lg'
-    %li.tag-box
-      %h3
-        =link_to 'Startups', tag_path('Startups'), class: 'btn btn-inverse btn-lg'
-    %li.tag-box
-      %h3
-        =link_to 'News', tag_path('News'), class: 'btn btn-inverse btn-lg'
-    %li.tag-box
-      %h3
-        =link_to 'Design', tag_path('Design'), class: 'btn btn-inverse btn-lg'
-  %ul.block-grid-md-3
-    %li.tag-box
-      %h3
-        =link_to 'International', tag_path('International'), class: 'btn btn-inverse btn-lg'
-    %li.tag-box
-      %h3
-        =link_to 'Programming', tag_path('Programming'), class: 'btn btn-inverse btn-lg'
-    %li.tag-box
-      %h3
-        =link_to 'Entrepreneurship', tag_path('Entrepreneurship'), class: 'btn btn-inverse btn-lg'
+.tag-wrapper
+  .col-md-12
+    .row
+      %h2.text-center
+        Popular newsletters topics
+  .col-md-9.text-center.col-centered.tag-container
+    %ul.block-grid-md-4
+      %li.tag-box
+        %h3
+          =link_to 'Fun', tag_path('Entertainment'), class: 'btn btn-inverse btn-lg'
+      %li.tag-box
+        %h3
+          =link_to 'Startups', tag_path('Startups'), class: 'btn btn-inverse btn-lg'
+      %li.tag-box
+        %h3
+          =link_to 'News', tag_path('News'), class: 'btn btn-inverse btn-lg'
+      %li.tag-box
+        %h3
+          =link_to 'Design', tag_path('Design'), class: 'btn btn-inverse btn-lg'
+    %ul.block-grid-md-3
+      %li.tag-box
+        %h3
+          =link_to 'International', tag_path('International'), class: 'btn btn-inverse btn-lg'
+      %li.tag-box
+        %h3
+          =link_to 'Programming', tag_path('Programming'), class: 'btn btn-inverse btn-lg'
+      %li.tag-box
+        %h3
+          =link_to 'Entrepreneurship', tag_path('Entrepreneurship'), class: 'btn btn-inverse btn-lg'

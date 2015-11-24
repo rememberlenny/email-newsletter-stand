@@ -23,9 +23,6 @@
         = render 'layouts/sidebar'
         = render 'layouts/navigation'
       .col-md-9.col-small-12
-        - if defined? @has_search
-          .row
-            = render 'layouts/search_large'
         = yield
         .main-footer
     .row
