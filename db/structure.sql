@@ -30,7 +30,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: audiences; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: audiences; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE audiences (
@@ -61,7 +61,7 @@ ALTER SEQUENCE audiences_id_seq OWNED BY audiences.id;
 
 
 --
--- Name: authentications; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: authentications; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE authentications (
@@ -100,7 +100,7 @@ ALTER SEQUENCE authentications_id_seq OWNED BY authentications.id;
 
 
 --
--- Name: categories; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: categories; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE categories (
@@ -131,7 +131,7 @@ ALTER SEQUENCE categories_id_seq OWNED BY categories.id;
 
 
 --
--- Name: curated_posts; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: curated_posts; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE curated_posts (
@@ -163,7 +163,7 @@ ALTER SEQUENCE curated_posts_id_seq OWNED BY curated_posts.id;
 
 
 --
--- Name: curations; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: curations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE curations (
@@ -195,7 +195,7 @@ ALTER SEQUENCE curations_id_seq OWNED BY curations.id;
 
 
 --
--- Name: emails; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: emails; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE emails (
@@ -211,7 +211,8 @@ CREATE TABLE emails (
     headers text,
     raw_headers text,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    admin_email boolean DEFAULT false
 );
 
 
@@ -235,7 +236,7 @@ ALTER SEQUENCE emails_id_seq OWNED BY emails.id;
 
 
 --
--- Name: friendly_id_slugs; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: friendly_id_slugs; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE friendly_id_slugs (
@@ -268,7 +269,7 @@ ALTER SEQUENCE friendly_id_slugs_id_seq OWNED BY friendly_id_slugs.id;
 
 
 --
--- Name: newsletters; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: newsletters; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE newsletters (
@@ -312,7 +313,7 @@ ALTER SEQUENCE newsletters_id_seq OWNED BY newsletters.id;
 
 
 --
--- Name: oauth_caches; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: oauth_caches; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE oauth_caches (
@@ -324,7 +325,7 @@ CREATE TABLE oauth_caches (
 
 
 --
--- Name: rails_admin_histories; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: rails_admin_histories; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE rails_admin_histories (
@@ -360,7 +361,7 @@ ALTER SEQUENCE rails_admin_histories_id_seq OWNED BY rails_admin_histories.id;
 
 
 --
--- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE schema_migrations (
@@ -369,7 +370,7 @@ CREATE TABLE schema_migrations (
 
 
 --
--- Name: taggings; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: taggings; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE taggings (
@@ -404,7 +405,7 @@ ALTER SEQUENCE taggings_id_seq OWNED BY taggings.id;
 
 
 --
--- Name: tags; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: tags; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE tags (
@@ -434,7 +435,7 @@ ALTER SEQUENCE tags_id_seq OWNED BY tags.id;
 
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: users; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE users (
@@ -486,7 +487,7 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 
 
 --
--- Name: votes; Type: TABLE; Schema: public; Owner: -; Tablespace:
+-- Name: votes; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE votes (
@@ -614,7 +615,7 @@ ALTER TABLE ONLY votes ALTER COLUMN id SET DEFAULT nextval('votes_id_seq'::regcl
 
 
 --
--- Name: audiences_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace:
+-- Name: audiences_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY audiences
@@ -622,7 +623,7 @@ ALTER TABLE ONLY audiences
 
 
 --
--- Name: authentications_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace:
+-- Name: authentications_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY authentications
@@ -630,7 +631,7 @@ ALTER TABLE ONLY authentications
 
 
 --
--- Name: categories_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace:
+-- Name: categories_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY categories
@@ -638,7 +639,7 @@ ALTER TABLE ONLY categories
 
 
 --
--- Name: curated_posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace:
+-- Name: curated_posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY curated_posts
@@ -646,7 +647,7 @@ ALTER TABLE ONLY curated_posts
 
 
 --
--- Name: curations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace:
+-- Name: curations_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY curations
@@ -654,7 +655,7 @@ ALTER TABLE ONLY curations
 
 
 --
--- Name: emails_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace:
+-- Name: emails_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY emails
@@ -662,7 +663,7 @@ ALTER TABLE ONLY emails
 
 
 --
--- Name: friendly_id_slugs_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace:
+-- Name: friendly_id_slugs_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY friendly_id_slugs
@@ -670,7 +671,7 @@ ALTER TABLE ONLY friendly_id_slugs
 
 
 --
--- Name: newsletters_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace:
+-- Name: newsletters_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY newsletters
@@ -678,7 +679,7 @@ ALTER TABLE ONLY newsletters
 
 
 --
--- Name: rails_admin_histories_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace:
+-- Name: rails_admin_histories_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY rails_admin_histories
@@ -686,7 +687,7 @@ ALTER TABLE ONLY rails_admin_histories
 
 
 --
--- Name: taggings_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace:
+-- Name: taggings_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY taggings
@@ -694,7 +695,7 @@ ALTER TABLE ONLY taggings
 
 
 --
--- Name: tags_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace:
+-- Name: tags_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY tags
@@ -702,7 +703,7 @@ ALTER TABLE ONLY tags
 
 
 --
--- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace:
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY users
@@ -710,7 +711,7 @@ ALTER TABLE ONLY users
 
 
 --
--- Name: votes_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace:
+-- Name: votes_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
 ALTER TABLE ONLY votes
@@ -718,168 +719,168 @@ ALTER TABLE ONLY votes
 
 
 --
--- Name: index_authentications_on_provider; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_authentications_on_provider; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_authentications_on_provider ON authentications USING btree (provider);
 
 
 --
--- Name: index_curated_posts_on_curation_id; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_curated_posts_on_curation_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_curated_posts_on_curation_id ON curated_posts USING btree (curation_id);
 
 
 --
--- Name: index_friendly_id_slugs_on_slug_and_sluggable_type; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_friendly_id_slugs_on_slug_and_sluggable_type; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_friendly_id_slugs_on_slug_and_sluggable_type ON friendly_id_slugs USING btree (slug, sluggable_type);
 
 
 --
--- Name: index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE UNIQUE INDEX index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope ON friendly_id_slugs USING btree (slug, sluggable_type, scope);
 
 
 --
--- Name: index_friendly_id_slugs_on_sluggable_id; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_friendly_id_slugs_on_sluggable_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_friendly_id_slugs_on_sluggable_id ON friendly_id_slugs USING btree (sluggable_id);
 
 
 --
--- Name: index_friendly_id_slugs_on_sluggable_type; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_friendly_id_slugs_on_sluggable_type; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_friendly_id_slugs_on_sluggable_type ON friendly_id_slugs USING btree (sluggable_type);
 
 
 --
--- Name: index_newsletters_on_cached_votes_down; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_newsletters_on_cached_votes_down; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_newsletters_on_cached_votes_down ON newsletters USING btree (cached_votes_down);
 
 
 --
--- Name: index_newsletters_on_cached_votes_score; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_newsletters_on_cached_votes_score; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_newsletters_on_cached_votes_score ON newsletters USING btree (cached_votes_score);
 
 
 --
--- Name: index_newsletters_on_cached_votes_total; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_newsletters_on_cached_votes_total; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_newsletters_on_cached_votes_total ON newsletters USING btree (cached_votes_total);
 
 
 --
--- Name: index_newsletters_on_cached_votes_up; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_newsletters_on_cached_votes_up; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_newsletters_on_cached_votes_up ON newsletters USING btree (cached_votes_up);
 
 
 --
--- Name: index_newsletters_on_cached_weighted_average; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_newsletters_on_cached_weighted_average; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_newsletters_on_cached_weighted_average ON newsletters USING btree (cached_weighted_average);
 
 
 --
--- Name: index_newsletters_on_cached_weighted_score; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_newsletters_on_cached_weighted_score; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_newsletters_on_cached_weighted_score ON newsletters USING btree (cached_weighted_score);
 
 
 --
--- Name: index_newsletters_on_cached_weighted_total; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_newsletters_on_cached_weighted_total; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_newsletters_on_cached_weighted_total ON newsletters USING btree (cached_weighted_total);
 
 
 --
--- Name: index_rails_admin_histories; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_rails_admin_histories; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_rails_admin_histories ON rails_admin_histories USING btree (item, "table", month, year);
 
 
 --
--- Name: index_taggings_on_taggable_id_and_taggable_type_and_context; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_taggings_on_taggable_id_and_taggable_type_and_context; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_taggings_on_taggable_id_and_taggable_type_and_context ON taggings USING btree (taggable_id, taggable_type, context);
 
 
 --
--- Name: index_tags_on_name; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_tags_on_name; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE UNIQUE INDEX index_tags_on_name ON tags USING btree (name);
 
 
 --
--- Name: index_users_on_confirmation_token; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_users_on_confirmation_token; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE UNIQUE INDEX index_users_on_confirmation_token ON users USING btree (confirmation_token);
 
 
 --
--- Name: index_users_on_lower_email_index; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_users_on_lower_email_index; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE UNIQUE INDEX index_users_on_lower_email_index ON users USING btree (lower((email)::text));
 
 
 --
--- Name: index_users_on_reset_password_token; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_users_on_reset_password_token; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (reset_password_token);
 
 
 --
--- Name: index_users_on_unlock_token; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_users_on_unlock_token; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE UNIQUE INDEX index_users_on_unlock_token ON users USING btree (unlock_token);
 
 
 --
--- Name: index_votes_on_votable_id_and_votable_type_and_vote_scope; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_votes_on_votable_id_and_votable_type_and_vote_scope; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_votes_on_votable_id_and_votable_type_and_vote_scope ON votes USING btree (votable_id, votable_type, vote_scope);
 
 
 --
--- Name: index_votes_on_voter_id_and_voter_type_and_vote_scope; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: index_votes_on_voter_id_and_voter_type_and_vote_scope; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE INDEX index_votes_on_voter_id_and_voter_type_and_vote_scope ON votes USING btree (voter_id, voter_type, vote_scope);
 
 
 --
--- Name: taggings_idx; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: taggings_idx; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE UNIQUE INDEX taggings_idx ON taggings USING btree (tag_id, taggable_id, taggable_type, context, tagger_id, tagger_type);
 
 
 --
--- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -; Tablespace:
+-- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
@@ -940,4 +941,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151121023131');
 INSERT INTO schema_migrations (version) VALUES ('20151121035925');
 
 INSERT INTO schema_migrations (version) VALUES ('20151121040723');
+
+INSERT INTO schema_migrations (version) VALUES ('20151124182751');
 
