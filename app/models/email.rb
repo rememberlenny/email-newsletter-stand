@@ -1,7 +1,8 @@
 class Email < ActiveRecord::Base
   validates :newsletter_id, presence: true
+  after_create :check_for_welcome
 
-  def self.check_for_welcome
+  def check_for_welcome
     subj = self.subject.downcase
     flags = [
       'for subscribing',
