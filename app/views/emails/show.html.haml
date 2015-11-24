@@ -1,2 +1,7 @@
 %div.row
+  %h1
+    = @email.subject
+%div.row.col-md-12
+:plain
+  #{raw @email.body.html_safe}
 

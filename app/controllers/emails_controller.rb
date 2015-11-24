@@ -1,6 +1,8 @@
 class EmailsController < ApplicationController
   respond_to :html, :json
   before_action :set_email, only: [:show, :edit, :update, :destroy]
+  skip_authorization_check
+  skip_before_action :authenticate_user!
 
   def index
     if params[:tag]

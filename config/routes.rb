@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get 't/:tag', to: 'newsletters#index', as: :tag
   get 'e/', to: 'emails#index', as: :emails
+  get 'e/:id', to: 'emails#show', as: :email
 
   # Charts
   get 'charts/emails_sent_by_day', to: 'charts#emails_sent_by_day', as: :emails_sent_by_day_chart
