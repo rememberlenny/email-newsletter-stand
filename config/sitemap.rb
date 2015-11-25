@@ -17,15 +17,15 @@ SitemapGenerator::Sitemap.create do
   #
   # Add '/articles'
   #
-  add root_path, :priority => 0.9, :changefreq => 'daily'
+
+  add root_path,        :priority => 0.9, :changefreq => 'daily'
   add newsletters_path, :priority => 0.8, :changefreq => 'daily'
-  add emails_path, :priority => 0.7, :changefreq => 'daily'
-  add about_path, :priority => 0.7, :changefreq => 'daily'
-  add contact_path, :priority => 0.7, :changefreq => 'daily'
-  #
-  # Add all articles:
-  #
-  #   Article.find_each do |article|
-  #     add article_path(article), :lastmod => article.updated_at
-  #   end
+  add emails_path,      :priority => 0.7, :changefreq => 'daily'
+  add about_path,       :priority => 0.7, :changefreq => 'daily'
+  add contact_path,     :priority => 0.7, :changefreq => 'daily'
+
+  Newsletter.find_each do |newsletter|
+    add newsletter_path(newsletter), :lastmod => newsletter.updated_at
+  end
+
 end
