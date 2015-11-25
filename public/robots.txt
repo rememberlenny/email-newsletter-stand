@@ -1,1 +1,1 @@
-Sitemap: http://www.emailnewsletterstand.com/sitemap.xml.gz
+Sitemap: https://www.emailnewsletterstand.com/sitemap.xml.gz
