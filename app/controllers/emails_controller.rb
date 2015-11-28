@@ -43,10 +43,10 @@ class EmailsController < ApplicationController
 
   private
     def set_email
-      @email = Email.find(params[:id])
+      @email = Email.friendly.find(params[:id])
     end
 
     def email_params
-      params.require(:email).permit( :newsletter_id, :to, :from, :subject, :body, :raw_text, :raw_html, :raw_body, :headers, :raw_headers)
+      params.require(:email).permit( :slug, :newsletter_id, :to, :from, :subject, :body, :raw_text, :raw_html, :raw_body, :headers, :raw_headers)
     end
 end

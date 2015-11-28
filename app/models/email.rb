@@ -3,6 +3,10 @@ class Email < ActiveRecord::Base
   after_create :check_for_welcome
   include AlgoliaSearch
 
+  extend FriendlyId
+  friendly_id :subject, use: :slugged
+
+
   def check_for_welcome
     flagged = false
     flags = [
