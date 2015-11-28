@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   # Email receiver
   mount_griddler
 
+  get 'n/:id',  to: 'newsletters#show', as: :newsletter
+  get 'n/',     to: 'newsletters#index', as: :newsletters
   resources :newsletters
   get 't/:tag', to: 'newsletters#index', as: :tag
   get 'e/:id',  to: 'emails#show', as: :email
