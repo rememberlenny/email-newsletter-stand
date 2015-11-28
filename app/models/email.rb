@@ -1,6 +1,7 @@
 class Email < ActiveRecord::Base
   validates :newsletter_id, presence: true
   after_create :check_for_welcome
+  include AlgoliaSearch
 
   def check_for_welcome
     flagged = false
