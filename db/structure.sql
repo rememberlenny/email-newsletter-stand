@@ -810,6 +810,13 @@ CREATE INDEX index_newsletters_on_cached_weighted_total ON newsletters USING btr
 
 
 --
+-- Name: index_newsletters_on_slug; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_newsletters_on_slug ON newsletters USING btree (slug);
+
+
+--
 -- Name: index_rails_admin_histories; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -943,4 +950,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151121035925');
 INSERT INTO schema_migrations (version) VALUES ('20151121040723');
 
 INSERT INTO schema_migrations (version) VALUES ('20151124182751');
+
+INSERT INTO schema_migrations (version) VALUES ('20151128025013');
 

@@ -1,8 +1,10 @@
 class Newsletter < ActiveRecord::Base
   extend FriendlyId
-  friendly_id :name, use: :slugged
-  attachment :featured_image
+  friendly_id :name, :use => :slugged
+  validates_presence_of :name, :slug
   after_create :generate_uid
+  before_save :check_slug
+  attachment :featured_image
   acts_as_taggable
   acts_as_votable
   include AlgoliaSearch
@@ -52,6 +54,12 @@ class Newsletter < ActiveRecord::Base
       return true
     end
     return false
+  end
+
+  def check_slug
+    if self.slug.empty?
+
+    end
   end
 
 end

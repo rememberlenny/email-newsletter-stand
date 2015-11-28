@@ -1,14 +1,14 @@
 # Route prefixes use a single letter to allow for vanity urls of two or more characters
 Rails.application.routes.draw do
-  resources :curations
-  resources :newsletters
-
   # Email receiver
   mount_griddler
 
+  resources :newsletters
   get 't/:tag', to: 'newsletters#index', as: :tag
-  get 'e/', to: 'emails#index', as: :emails
-  get 'e/:id', to: 'emails#show', as: :email
+  get 'e/:id',  to: 'emails#show', as: :email
+  get 'e/',     to: 'emails#index', as: :emails
+
+  resources :curations
 
   # Charts
   get 'charts/emails_sent_by_day', to: 'charts#emails_sent_by_day', as: :emails_sent_by_day_chart
