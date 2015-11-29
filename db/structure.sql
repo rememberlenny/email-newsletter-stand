@@ -212,7 +212,8 @@ CREATE TABLE emails (
     raw_headers text,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    admin_email boolean DEFAULT false
+    admin_email boolean DEFAULT false,
+    slug character varying(255)
 );
 
 
@@ -733,6 +734,13 @@ CREATE INDEX index_curated_posts_on_curation_id ON curated_posts USING btree (cu
 
 
 --
+-- Name: index_emails_on_slug; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_emails_on_slug ON emails USING btree (slug);
+
+
+--
 -- Name: index_friendly_id_slugs_on_slug_and_sluggable_type; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -952,4 +960,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151121040723');
 INSERT INTO schema_migrations (version) VALUES ('20151124182751');
 
 INSERT INTO schema_migrations (version) VALUES ('20151128025013');
+
+INSERT INTO schema_migrations (version) VALUES ('20151128025015');
 
