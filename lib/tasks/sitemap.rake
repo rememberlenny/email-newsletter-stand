@@ -7,10 +7,10 @@ namespace :sitemap do
       secret_access_key: ENV['ENS_AWS_SECRET_ACCESS_KEY'],
       region: ENV['ENS_AWS_REGION'],
     )
-    object = s3.bucket(ENV['ENS_AWS_BUCKET']).object('key')
     Dir.entries(File.join(Rails.root, "public", "sitemaps")).each do |file_name|
       next if ['.', '..'].include? file_name
       path = "sitemaps/#{file_name}"
+      object = s3.bucket(ENV['ENS_AWS_BUCKET']).object(path)
       file = File.join(Rails.root, "public", "sitemaps", file_name)
 
       begin
