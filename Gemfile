@@ -101,6 +101,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem "refile", require: "refile/rails"
 gem "refile-mini_magick"
 gem "refile-s3"
+gem "fog-aws"
 
 # SEO
 gem 'meta-tags'
