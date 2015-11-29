@@ -2,12 +2,12 @@ require 'aws-sdk'
 namespace :sitemap do
   desc 'Upload the sitemap files to S3'
   task upload_to_s3: :environment do
-    s3 = Aws::S3::Client.new(
+    s3 = Aws::S3::Resource.new(
       access_key_id: ENV['ENS_AWS_ACCESS_KEY_ID'],
       secret_access_key: ENV['ENS_AWS_SECRET_ACCESS_KEY'],
       region: ENV['ENS_AWS_REGION'],
     )
-    bucket = s3.list_buckets[ENV['ENS_AWS_BUCKET']]
+    bucket = s3.bucket(ENV['ENS_AWS_BUCKET']).object('key')
     Dir.entries(File.join(Rails.root, "public", "sitemaps")).each do |file_name|
       next if ['.', '..'].include? file_name
       path = "sitemaps/#{file_name}"
@@ -15,7 +15,8 @@ namespace :sitemap do
 
       begin
         object = bucket.objects[path]
-        object.write(file: file)
+        object.upload_file(file)
+
       rescue Exception => e
         raise e
       end
