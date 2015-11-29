@@ -7,14 +7,13 @@ namespace :sitemap do
       secret_access_key: ENV['ENS_AWS_SECRET_ACCESS_KEY'],
       region: ENV['ENS_AWS_REGION'],
     )
-    bucket = s3.bucket(ENV['ENS_AWS_BUCKET']).object('key')
+    object = s3.bucket(ENV['ENS_AWS_BUCKET']).object('key')
     Dir.entries(File.join(Rails.root, "public", "sitemaps")).each do |file_name|
       next if ['.', '..'].include? file_name
       path = "sitemaps/#{file_name}"
       file = File.join(Rails.root, "public", "sitemaps", file_name)
 
       begin
-        object = bucket.objects[path]
         object.upload_file(file)
 
       rescue Exception => e
