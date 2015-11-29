@@ -63,7 +63,7 @@ Rails.application.routes.draw do
   get '/p/email' => 'pages#email' if ENV['ALLOW_EMAIL_PREVIEW'].present?
 
   get 'robots.:format' => 'robots#index'
-  get "sitemap.xml.gz" => "sitemaps#sitemap", format: :xml, as: :sitemap
+  get "sitemap:map_id" => "sitemaps#sitemap", format: :xml, as: :sitemap
 
   root 'pages#home'
 end
