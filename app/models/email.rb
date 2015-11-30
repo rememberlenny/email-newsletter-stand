@@ -22,7 +22,7 @@ class Email < ActiveRecord::Base
       'confirm your',
     ]
     flags.each do |flag|
-      if self.subject.downcase.index(flag) != nil
+      if self.subject && self.subject.downcase.index(flag) != nil
         flagged = true;
       end
     end
