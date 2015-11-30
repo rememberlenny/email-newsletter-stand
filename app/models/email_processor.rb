@@ -11,9 +11,9 @@ class EmailProcessor
         newsletter_id: newsletter.id,
         to: @email.to[0][:email],
         from: @email.from[:email],
-        raw_text: @email.raw_text,
-        raw_html: @email.raw_html,
-        raw_body: @email.raw_body,
+        # raw_text: @email.raw_text,
+        # raw_html: @email.raw_html,
+        # raw_body: @email.raw_body,
         body: @email.body
       )
     end
