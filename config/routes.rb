@@ -1,6 +1,7 @@
 # Route prefixes use a single letter to allow for vanity urls of two or more characters
 Rails.application.routes.draw do
   # Email receiver
+  mount_griddler
   get "/email_processor", to: proc { [200, {}, ["OK"]] }, as: "mandrill_head_test_request"
 
   get 'n/:id',  to: 'newsletters#show', as: :newsletter
