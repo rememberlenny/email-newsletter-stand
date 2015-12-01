@@ -2,8 +2,7 @@
 Rails.application.routes.draw do
   # Email receiver
   mount_griddler
-  get "/email_processor", to: proc { [200, {}, ["OK"]] }, as: "mandrill_head_test_request"
-
+  get 'n/unconfirmed',     to: 'newsletters#unconfirmed', as: :unconfirmed
   get 'n/:id',  to: 'newsletters#show', as: :newsletter
   get 'n/',     to: 'newsletters#index', as: :newsletters
   resources :newsletters

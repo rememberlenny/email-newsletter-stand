@@ -3,8 +3,17 @@ class NewslettersController < ApplicationController
   before_action :set_newsletter, only: [:show, :edit, :update, :destroy]
   before_action :set_emails, only: [:show]
   load_and_authorize_resource only: [:edit, :update, :destroy]
-  skip_authorization_check only: [:show, :index]
-  skip_before_action :authenticate_user!, only: [:show, :index]
+  skip_authorization_check only: [:show, :index, :unconfirmed]
+  skip_before_action :authenticate_user!, only: [:show, :index, :unconfirmed]
+
+  def unconfirmed
+    @newsletters = []
+    Newsletter.all.each do |newsletter|
+      if Email.where(newsletter_id: newsletter.id).count < 2
+        @newsletters << newsletter
+      end
+    end
+  end
 
   def index
     if params[:tag]
