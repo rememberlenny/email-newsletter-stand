@@ -145,8 +145,8 @@ GEM
     griddler (1.2.1)
       htmlentities
       rails (>= 3.2.0)
-    griddler-sendgrid (0.0.1)
-      griddler
+    griddler-mandrill (1.1.3)
+      griddler (>= 1.2.1)
     groupdate (2.5.0)
       activesupport (>= 3)
     guard (2.6.1)
@@ -480,7 +480,7 @@ DEPENDENCIES
   fog-aws
   friendly_id (~> 5.1.0)
   griddler
-  griddler-sendgrid
+  griddler-mandrill
   groupdate
   guard-rspec
   haml-rails

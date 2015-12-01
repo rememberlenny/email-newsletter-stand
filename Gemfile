@@ -19,7 +19,8 @@ gem 'sitemap_generator'
 
 # Email
 gem 'griddler'
-gem 'griddler-sendgrid'
+gem 'griddler-mandrill'
+# gem 'griddler-sendgrid'
 
 # Monitoring
 gem 'rack-timeout', '~> 0.1.0beta4'
