@@ -15,8 +15,11 @@ module PagesHelper
   def render_recent_newsletters num
     newsletters = []
     newsletter_ids = Email.order('created_at DESC').select(:newsletter_id).map(&:newsletter_id).uniq
-    newsletter_ids.each do |id|
-      newsletters << Newsletter.find(id)
+    newsletter_ids.each do |nid|
+      if !Newsletter.where(:id => nid).blank?
+        newsletter = Newsletter.find(nid)
+        newsletters << newsletter
+      end
     end
     return newsletters.slice(0, 7)
   end
