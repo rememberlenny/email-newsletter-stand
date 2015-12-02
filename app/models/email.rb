@@ -19,6 +19,7 @@ class Email < ActiveRecord::Base
       'subscription confirmed',
       'welcome to your',
       'email validation',
+      'your subscription',
       'confirm your',
     ]
     flags.each do |flag|
