@@ -48,6 +48,7 @@ module StarterKit
 
     # Serve vendor fonts
     config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
+    config.autoload_paths += %W(#{Rails.root}/app/workers)
 
     config.assets.precompile += %w( head )
 

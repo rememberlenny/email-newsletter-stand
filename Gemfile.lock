@@ -42,7 +42,6 @@ GEM
     algoliasearch-rails (1.14.1)
       algoliasearch (>= 1.2.14)
       json (>= 1.5.1)
-    amq-protocol (2.0.0)
     arel (5.0.1.20140414130214)
     awesome_print (1.2.0)
     aws-sdk (2.1.14)
@@ -61,8 +60,6 @@ GEM
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
     builder (3.2.2)
-    bunny (2.2.1)
-      amq-protocol (>= 2.0.0)
     byebug (3.5.1)
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
@@ -145,6 +142,11 @@ GEM
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
     git-version-bump (0.15.1)
+    griddler (1.2.1)
+      htmlentities
+      rails (>= 3.2.0)
+    griddler-mailgun (1.0.2)
+      griddler
     groupdate (2.5.0)
       activesupport (>= 3)
     guard (2.6.1)
@@ -464,7 +466,6 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
-  bunny
   cancancan (~> 1.9)
   capybara-webkit
   chartkick
@@ -478,6 +479,8 @@ DEPENDENCIES
   ffaker
   fog-aws
   friendly_id (~> 5.1.0)
+  griddler
+  griddler-mailgun
   groupdate
   guard-rspec
   haml-rails

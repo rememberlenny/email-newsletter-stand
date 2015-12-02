@@ -16,10 +16,11 @@ gem 'terminal-notifier', group: [:development]
 # Search
 gem 'algoliasearch-rails'
 gem 'sitemap_generator'
+gem 'griddler'
+gem 'griddler-mailgun'
 
 
 # Monitoring
-gem 'bunny'
 gem 'rack-timeout', '~> 0.1.0beta4'
 gem 'newrelic_rpm'
 gem 'intercom-rails'

@@ -1,5 +1,6 @@
 # Route prefixes use a single letter to allow for vanity urls of two or more characters
 Rails.application.routes.draw do
+  mount_griddler
   get 'n/unconfirmed',     to: 'newsletters#unconfirmed', as: :unconfirmed
   get 'n/:id',  to: 'newsletters#show', as: :newsletter
   get 'n/',     to: 'newsletters#index', as: :newsletters
