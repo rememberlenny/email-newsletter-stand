@@ -17,12 +17,9 @@ gem 'terminal-notifier', group: [:development]
 gem 'algoliasearch-rails'
 gem 'sitemap_generator'
 
-# Email
-gem 'griddler'
-gem 'griddler-mandrill'
-# gem 'griddler-sendgrid'
 
 # Monitoring
+gem 'sneakers'
 gem 'rack-timeout', '~> 0.1.0beta4'
 gem 'newrelic_rpm'
 gem 'intercom-rails'
