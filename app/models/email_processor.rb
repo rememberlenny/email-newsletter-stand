@@ -8,6 +8,7 @@ class EmailProcessor
   end
 
   def self.create_email(email)
+    @email = email
     newsletter = Newsletter.find_by_email(@email["to"][0]["token"])
     if @email["to"]
       if newsletter
