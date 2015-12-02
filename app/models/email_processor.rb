@@ -1,6 +1,6 @@
 class EmailProcessor
 
-  def process(email)
+  def self.process(email)
     @email = email
     newsletter = Newsletter.find_by_email(@email.to[0][:token])
     if !newsletter.nil?
