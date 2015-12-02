@@ -5,6 +5,9 @@
   %h1
     = @email.subject
 %div.row.col-md-12
-:plain
-  #{raw @email.body.html_safe}
+- if !@email.raw_html.empty?
+  = raw @email.raw_html.html_safe
+- else
+  = raw @email.body.html_safe
+
 
