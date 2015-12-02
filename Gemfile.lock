@@ -145,9 +145,6 @@ GEM
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
     git-version-bump (0.15.1)
-    griddler (1.2.1)
-      htmlentities
-      rails (>= 3.2.0)
     groupdate (2.5.0)
       activesupport (>= 3)
     guard (2.6.1)
@@ -330,24 +327,8 @@ GEM
     rdoc (4.1.2)
       json (~> 1.4)
     redis (3.1.0)
-    redis-actionpack (4.0.1)
-      actionpack (~> 4)
-      redis-rack (~> 1.5.0)
-      redis-store (~> 1.1.0)
-    redis-activesupport (4.1.5)
-      activesupport (>= 3, < 5)
-      redis-store (~> 1.1.0)
     redis-namespace (1.5.1)
       redis (~> 3.0, >= 3.0.4)
-    redis-rack (1.5.0)
-      rack (~> 1.5)
-      redis-store (~> 1.1.0)
-    redis-rails (4.0.0)
-      redis-actionpack (~> 4)
-      redis-activesupport (~> 4)
-      redis-store (~> 1.1.0)
-    redis-store (1.1.7)
-      redis (>= 2.2)
     refile (0.5.5)
       mime-types
       rest-client (~> 1.8)
@@ -505,7 +486,6 @@ DEPENDENCIES
   ffaker
   fog-aws
   friendly_id (~> 5.1.0)
-  griddler
   groupdate
   guard-rspec
   haml-rails
@@ -538,8 +518,6 @@ DEPENDENCIES
   rails_12factor
   rails_admin
   rb-fsevent
-  redis-namespace
-  redis-rails
   refile
   refile-mini_magick
   refile-s3
