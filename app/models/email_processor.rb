@@ -21,6 +21,7 @@ class EmailProcessor
         body: @email.body
       )
     # pry
+      ack! # we need to let queue know that message was received
     end
     # pry
   end
