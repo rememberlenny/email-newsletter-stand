@@ -6,7 +6,6 @@ class Email < ActiveRecord::Base
   extend FriendlyId
   friendly_id :subject, use: :slugged
 
-
   def check_for_welcome
     flagged = false
     flags = [
