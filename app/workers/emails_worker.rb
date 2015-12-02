@@ -11,5 +11,6 @@ class EmailsWorker
   # changes
   def work(raw_post)
     EmailProcessor.create_email(raw_post)
+    ack! # we need to let queue know that message was received
   end
 end
