@@ -1,12 +1,7 @@
 class EmailProcessor
-  def initialize(email)
-    # pry
-    # pry
-  end
 
-  def self.process(email)
+  def process(email)
     @email = email
-    # pry
     newsletter = Newsletter.find_by_email(@email.to[0][:token])
     if !newsletter.nil?
     # pry
