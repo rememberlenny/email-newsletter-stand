@@ -1,4 +1,4 @@
-class EmailssWorker
+class EmailsWorker
   include Sneakers::Worker
   # This worker will connect to "dashboard.posts" queue
   # env is set to nil since by default the actuall queue name would be
