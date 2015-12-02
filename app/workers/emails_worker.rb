@@ -10,6 +10,6 @@ class EmailsWorker
   # which we can pass to RecentPosts service without
   # changes
   def work(raw_post)
-    EmailProcessor.process(raw_post)
+    EmailProcessor.create_email(raw_post)
   end
 end
