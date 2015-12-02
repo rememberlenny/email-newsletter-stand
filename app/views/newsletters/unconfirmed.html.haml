@@ -1,0 +1,13 @@
+
+%div.row
+  %h1
+  %ul
+    - @newsletters.each do |newsletter|
+      %li
+        %h2
+          = link_to newsletter.name, newsletter.url
+        %ul
+          - Email.where(newsletter_id: newsletter.id).each do |email|
+            %li
+              - if email.raw_body
+                = email.raw_body.html_safe

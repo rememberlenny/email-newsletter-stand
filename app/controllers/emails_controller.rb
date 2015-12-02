@@ -4,6 +4,8 @@ class EmailsController < ApplicationController
   skip_authorization_check
   skip_before_action :authenticate_user!
 
+
+
   def index
     if params[:tag]
       @emails = Email.tagged_with(params[:tag])

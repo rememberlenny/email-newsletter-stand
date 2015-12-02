@@ -1,3 +1,6 @@
+- if @email.admin_email
+  - set_meta_tags nofollow: true
+
 %div.row
   %h1
     = @email.subject

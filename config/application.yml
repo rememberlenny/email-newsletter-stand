@@ -76,7 +76,6 @@ default_env: &default_env
   AIRBRAKE_API_KEY: ''
   AIRBRAKE_HOST: ''
 
-
 development:
   <<: *common
   env:
