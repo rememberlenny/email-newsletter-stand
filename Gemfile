@@ -19,7 +19,7 @@ gem 'sitemap_generator'
 
 
 # Monitoring
-gem 'sneakers'
+gem 'hutch'
 gem 'rack-timeout', '~> 0.1.0beta4'
 gem 'newrelic_rpm'
 gem 'intercom-rails'
