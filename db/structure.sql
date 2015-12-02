@@ -436,6 +436,46 @@ ALTER SEQUENCE tags_id_seq OWNED BY tags.id;
 
 
 --
+-- Name: unknown_emails; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE unknown_emails (
+    id integer NOT NULL,
+    newsletter_id integer,
+    "to" character varying(255),
+    "from" character varying(255),
+    subject text,
+    body text,
+    raw_text text,
+    raw_html text,
+    raw_body text,
+    headers text,
+    raw_headers text,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: unknown_emails_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE unknown_emails_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: unknown_emails_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE unknown_emails_id_seq OWNED BY unknown_emails.id;
+
+
+--
 -- Name: users; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -605,6 +645,13 @@ ALTER TABLE ONLY tags ALTER COLUMN id SET DEFAULT nextval('tags_id_seq'::regclas
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY unknown_emails ALTER COLUMN id SET DEFAULT nextval('unknown_emails_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 
 
@@ -701,6 +748,14 @@ ALTER TABLE ONLY taggings
 
 ALTER TABLE ONLY tags
     ADD CONSTRAINT tags_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: unknown_emails_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY unknown_emails
+    ADD CONSTRAINT unknown_emails_pkey PRIMARY KEY (id);
 
 
 --
@@ -962,4 +1017,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151124182751');
 INSERT INTO schema_migrations (version) VALUES ('20151128025013');
 
 INSERT INTO schema_migrations (version) VALUES ('20151128025015');
+
+INSERT INTO schema_migrations (version) VALUES ('20151202160447');
 
