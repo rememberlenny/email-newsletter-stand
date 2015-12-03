@@ -1,5 +1,6 @@
 class Email < ActiveRecord::Base
   validates :newsletter_id, presence: true
+  after_create :refresh_sitemap
   after_create :check_for_welcome
   include AlgoliaSearch
 
@@ -32,6 +33,13 @@ class Email < ActiveRecord::Base
       self.save
     end
   end
+
+  def refresh_sitemap
+    SitemapGenerator::Interpreter.run(config_file: 'config/sitemap.rb')
+    SitemapGenerator::Sitemap.ping_search_engines
+  end
+
+  delayed :refresh_sitemap
 
   def self.get_recent id, count
     return Email.where(newsletter_id: id).where.not(admin_email: true).limit(count).reverse

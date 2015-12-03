@@ -3,6 +3,7 @@ class Newsletter < ActiveRecord::Base
   friendly_id :name, :use => :slugged
   validates_presence_of :name, :slug
   after_create :generate_uid
+  after_create :refresh_sitemap
   before_save :check_slug
   attachment :featured_image
   acts_as_taggable
@@ -55,6 +56,13 @@ class Newsletter < ActiveRecord::Base
     end
     return false
   end
+
+  def refresh_sitemap
+    SitemapGenerator::Interpreter.run(config_file:'config/sitemap.rb')
+    SitemapGenerator::Sitemap.ping_search_engines
+  end
+
+  delayed :refresh_sitemap
 
   def check_slug
     if self.slug.empty?
