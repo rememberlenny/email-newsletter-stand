@@ -4,7 +4,7 @@ module SeoHelper
 
     #title
     title = I18n.t('brand.name')
-    og_image = I18n.t('meta.og.image')
+    og_image = image_url('logo.png')
     url = request.url
     if @set_title
       set_meta_tags :site => @set_title + ' - ' + title
