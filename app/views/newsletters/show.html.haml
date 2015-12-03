@@ -1,3 +1,9 @@
+- content_for :head do
+  = @newsletter.subject
+
+- content_for :description do
+  = @newsletter.description
+
 %p#notice= notice
 
 %div.row
