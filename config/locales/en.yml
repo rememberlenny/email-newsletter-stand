@@ -25,6 +25,12 @@
 #
 
 en:
+  meta:
+    description: 'Email Newsletter Stand: Find Email Newsletters and Monitor Communication Trends'
+    keywords: 'email newsletters, emailnewsletter, best email newsletters, marketing trends, content distribution, digital media, media strategy'
+    og:
+      image: ''
+      app_id: ''
   brand:
     name: 'Email Newsletter Stand'
 

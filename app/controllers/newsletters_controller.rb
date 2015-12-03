@@ -25,6 +25,9 @@ class NewslettersController < ApplicationController
   end
 
   def show
+    @set_title = @newsletter.name
+    @set_meta_description = @newsletter.description
+    @set_meta_keyword = @newsletter.tag_list
     respond_with(@newsletter)
   end
 

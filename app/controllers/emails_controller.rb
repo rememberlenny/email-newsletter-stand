@@ -16,6 +16,10 @@ class EmailsController < ApplicationController
   end
 
   def show
+    @newsletter = Newsletter.find @email.newsletter_id
+    @set_title = @email.subject + ' | ' + @newsletter.name
+    @set_meta_description = @newsletter.description
+    @set_meta_keyword = @newsletter.tag_list
     respond_with(@email)
   end
 

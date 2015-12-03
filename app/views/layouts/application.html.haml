@@ -4,8 +4,7 @@
     %meta{charset: "utf-8"}/
     %meta{content: 'width=device-width, initial-scale=1.0', name: 'viewport'}
     %meta{:content => "qZHwbPaQhRGq_TKKvnw2_fmxVPR_TGOeY67aVzMlGVg", :name => "google-site-verification"}/
-    %title= content_for?(:title) ? yield(:title) : I18n.t('brand.name')
-    %meta{content: (content_for?(:description) ? yield(:description) : I18n.t('brand.name')), name: 'description'}
+    = set_display_meta_tags
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     /[if lt IE 9]
     = javascript_include_tag 'ie', 'data-turbolinks-track' => true
@@ -14,7 +13,6 @@
     = headjs_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     = yield :head
-
 
     :javascript
       var _rollbarConfig = {
