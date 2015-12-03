@@ -5,9 +5,13 @@
     %h2.text-center
       Most Recent
     %ul.block-grid-sm-1
-      - render_recent_newsletters(8).each do |newsletter|
+      - render_recent_newsletters(20).each do |email|
         %li
-          = render 'newsletters/element_notag', :local => { :item => newsletter, :has_tags => false }
+          %strong
+            = link_to Newsletter.find(email.newsletter_id).name, email
+          = link_to email.subject, email
+          %p
+            = strip_tags email.body.split(" ").first(70).join(" ").gsub(/(?:f|ht)tps?:\/[^\s]+/, '')
 
 .row
   .col-md-12
