@@ -1,7 +1,7 @@
 = link_to root_path do
   .hero-lead
     = link_to root_path do
-      = image_tag('logo.png')
+      = image_tag('logo.png', {style: 'max-width: 100px;'})
     %h1
       = I18n.t('brand.name')
     %h2.lead
