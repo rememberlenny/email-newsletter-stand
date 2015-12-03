@@ -7,10 +7,11 @@ class EmailsController < ApplicationController
 
 
   def index
+    @has_search = true
     if params[:tag]
-      @emails = Email.tagged_with(params[:tag])
+      @emails = Email.tagged_with(params[:tag]).page params[:page]
     else
-      @emails = Email.all
+      @emails = Email.all.page params[:page]
     end
     respond_with(@emails)
   end

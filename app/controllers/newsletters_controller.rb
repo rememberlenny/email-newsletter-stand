@@ -61,7 +61,7 @@ class NewslettersController < ApplicationController
     end
 
     def set_emails
-      @emails = Email.where(newsletter_id: @newsletter.id).where.not(admin_email: true).reverse
+      @emails = Email.where(newsletter_id: @newsletter.id).where.not(admin_email: true).order("created_at DESC").page params[:page]
     end
 
     def newsletter_params

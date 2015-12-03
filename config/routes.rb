@@ -69,5 +69,5 @@ Rails.application.routes.draw do
   get "sitemap4.xml.gz" => "sitemaps#sitemap", format: :xml, as: :sitemap4
   get "sitemap5.xml.gz" => "sitemaps#sitemap", format: :xml, as: :sitemap5
 
-  root 'pages#home'
+  root 'emails#index'
 end

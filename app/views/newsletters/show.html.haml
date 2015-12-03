@@ -7,25 +7,38 @@
     %div
       %p
         = @newsletter.description
-    %p
-      %b
-        = link_to 'Website', @newsletter.url
+
+    %ul.block-grid-sm-1
+      - @emails.each do |email|
+        %li
+          %div
+            %p{style: 'margin-bottom: 0px; padding: 0px;'}
+              %label.palette.palette-concrete{style: 'padding: 5px 10px;'}
+                #{email.created_at.to_s}
+            = link_to email do
+              %h2{style: 'margin-top: 5px'}
+                = link_to email.subject, email
+            %p
+              = strip_tags email.body.split(" ").first(70).join(" ").gsub(/(?:f|ht)tps?:\/[^\s]+/, '') + "..."
+
+
+      = paginate @emails
+  %div.col-md-4
+    = image_tag attachment_url(@newsletter, :featured_image, :fill, 300, 300, format: "jpg")
+
     %div.bootstrap-tagsinput
       %b Tags:
       = raw @newsletter.tag_list.map { |t| link_to t, tag_path(t), class: 'tag label label-info' }.join(' ')
 
+
     - if current_user && current_user.is_curator?
       = link_to 'Edit', edit_newsletter_path(@newsletter)
       \|
-    = link_to 'Back', newsletters_path, class: 'btn btn-primary'
+    %p
+      %b
+        = link_to 'Website', @newsletter.url, class: 'btn btn-info'
     - if current_user && current_user.is_curator?
       %div
         = @newsletter.uid + '@emailnewsletterstand.com'
 
-    %div
-      - @emails.each do |email|
-        %h3
-          = link_to email.subject + ': ' + email.created_at.to_s, email
-
-  %div.col-md-4
-    = image_tag attachment_url(@newsletter, :featured_image, :fill, 300, 300, format: "jpg")
+    = link_to 'Back', newsletters_path, class: 'btn btn-default'

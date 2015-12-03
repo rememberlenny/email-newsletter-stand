@@ -1,4 +1,17 @@
 - urls = %r{(?:https?|ftp|mailto)://\S+}i
-- @emails.each do |email|
-  %p
-    = raw email.body.gsub urls, '<a href="\0">\0</a>'
+.row
+  = render 'layouts/search_large'
+%div.row
+  .col-md-12
+    %h2.text-center
+      Most Recent
+    %ul.block-grid-sm-1
+      - @emails.each do |email|
+        %li
+          %strong
+            = link_to Newsletter.find(email.newsletter_id).name, email
+          = link_to email.subject, email
+          %p
+            = strip_tags email.body.split(" ").first(70).join(" ").gsub(/(?:f|ht)tps?:\/[^\s]+/, '') + "..."
+
+= paginate @emails
