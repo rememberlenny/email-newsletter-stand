@@ -24,6 +24,8 @@
 
       = paginate @emails
   %div.col-md-4
+    %p
+      = link_to 'Return to Newsletters', newsletters_path, class: 'btn btn-default'
     = image_tag attachment_url(@newsletter, :featured_image, :fill, 300, 300, format: "jpg")
 
     %div.bootstrap-tagsinput
@@ -41,4 +43,3 @@
       %div
         = @newsletter.uid + '@emailnewsletterstand.com'
 
-    = link_to 'Back', newsletters_path, class: 'btn btn-default'
