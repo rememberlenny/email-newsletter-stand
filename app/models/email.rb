@@ -5,6 +5,10 @@ class Email < ActiveRecord::Base
   after_create :prep_remove_unsubscribe
   include AlgoliaSearch
 
+  algoliasearch do
+    # associated index settings can be configured from here
+  end
+
   extend FriendlyId
   friendly_id :subject, use: :slugged
 
