@@ -4,9 +4,9 @@
     %meta{charset: "utf-8"}/
     %meta{content: 'width=device-width, initial-scale=1.0', name: 'viewport'}
     %meta{:content => "qZHwbPaQhRGq_TKKvnw2_fmxVPR_TGOeY67aVzMlGVg", :name => "google-site-verification"}/
-    = set_meta_tags site: I18n.t('brand.name'), title:  (content_for?(:title) ? yield(:title) : ''), reverse: true
-    = set_meta_tags description: (content_for?(:description) ? yield(:description) : "Email Newsletter Stand: The Best Email Newsletter Monitor")
-    = set_meta_tags keywords: %w[emails newsletter email marketing emailnewsletters emailnewsletterstand]
+    - set_meta_tags site: I18n.t('brand.name'), title:  (content_for?(:title) ? yield(:title) : ''), reverse: true
+    - set_meta_tags description: (content_for?(:description) ? yield(:description) : "Email Newsletter Stand: The Best Email Newsletter Monitor")
+    - set_meta_tags keywords: %w[emails newsletter email marketing emailnewsletters emailnewsletterstand]
     %meta{content: (content_for?(:description) ? yield(:description) : I18n.t('brand.name')), name: 'description'}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     /[if lt IE 9]
