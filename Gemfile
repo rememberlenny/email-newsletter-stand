@@ -19,6 +19,7 @@ gem 'sitemap_generator'
 gem 'griddler'
 gem 'griddler-mailgun'
 
+gem 'nokogiri'
 
 # Monitoring
 gem 'rack-timeout', '~> 0.1.0beta4'

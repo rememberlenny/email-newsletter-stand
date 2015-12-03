@@ -13,14 +13,7 @@ module PagesHelper
   end
 
   def render_recent_newsletters num
-    newsletters = []
-    newsletter_ids = Email.order('created_at DESC').select(:newsletter_id).map(&:newsletter_id).uniq
-    newsletter_ids.each do |nid|
-      if !Newsletter.where(:id => nid).blank? && Email.where(newsletter_id: nid).where(admin_email: false).count > 0
-        newsletter = Newsletter.find(nid)
-        newsletters << newsletter
-      end
-    end
-    return newsletters.slice(0, 7)
+    @emails = Email.order('created_at DESC').limit(num)
+    return @emails
   end
 end

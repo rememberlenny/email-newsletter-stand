@@ -496,6 +496,7 @@ DEPENDENCIES
   meta_request
   minitest
   newrelic_rpm
+  nokogiri
   nprogress-rails
   omniauth
   omniauth-facebook
