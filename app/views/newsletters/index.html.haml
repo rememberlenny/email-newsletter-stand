@@ -22,5 +22,5 @@
           %p
             = newsletter.description.split(" ").first(70).join(" ").gsub(/(?:f|ht)tps?:\/[^\s]+/, '') + "..."
           = link_to 'Learn more', newsletter, class: 'btn btn-block btn-lg btn-primary'
-
+          %hr
   = paginate @newsletters

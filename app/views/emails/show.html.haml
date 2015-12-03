@@ -1,9 +1,28 @@
 - if @email.admin_email
   - set_meta_tags nofollow: true
 
+
 %div.row
-  %h1
-    = @email.subject
+  %div.col-md-8
+    = link_to newsletter_path(@newsletter) do
+      %h1
+        #{@newsletter.name}
+    %div
+      %p
+        Sent #{@email.created_at}
+  %div.col-md-4
+    %p
+      = link_to 'Return to Newsletter', newsletter_path(@newsletter), class: 'btn btn-default'
+    - if !@newsletter.image_url.nil?
+      = image_tag @newsletter.image_url
+    - elsif  !@newsletter.featured_image.nil?
+      = image_tag attachment_url(@newsletter, :featured_image, :fill, 300, 300, format: "jpg")
+
+
+%div.row
+  %div.col-md-12
+    %h2
+      = @email.subject
 %div.row.col-md-12
 - if @email.raw_html && !@email.raw_html.empty?
   = raw @email.raw_html.html_safe

@@ -26,7 +26,10 @@
   %div.col-md-4
     %p
       = link_to 'Return to Newsletters', newsletters_path, class: 'btn btn-default'
-    = image_tag attachment_url(@newsletter, :featured_image, :fill, 300, 300, format: "jpg")
+    - if !@newsletter.image_url.nil?
+      = image_tag @newsletter.image_url
+    - elsif  !@newsletter.featured_image.nil?
+      = image_tag attachment_url(@newsletter, :featured_image, :fill, 300, 300, format: "jpg")
 
     %div.bootstrap-tagsinput
       %b Tags:
