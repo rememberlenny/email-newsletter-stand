@@ -35,11 +35,8 @@ class Email < ActiveRecord::Base
   end
 
   def refresh_sitemap
-    SitemapGenerator::Interpreter.run(config_file: 'config/sitemap.rb')
-    SitemapGenerator::Sitemap.ping_search_engines
+    Sitemap.delay.refresh
   end
-
-  delayed :refresh_sitemap
 
   def self.get_recent id, count
     return Email.where(newsletter_id: id).where.not(admin_email: true).limit(count).reverse

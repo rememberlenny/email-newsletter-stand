@@ -58,11 +58,8 @@ class Newsletter < ActiveRecord::Base
   end
 
   def refresh_sitemap
-    SitemapGenerator::Interpreter.run(config_file:'config/sitemap.rb')
-    SitemapGenerator::Sitemap.ping_search_engines
+    Sitemap.delay.refresh
   end
-
-  delayed :refresh_sitemap
 
   def check_slug
     if self.slug.empty?
