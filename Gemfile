@@ -19,6 +19,7 @@ gem 'sitemap_generator'
 gem 'griddler'
 gem 'griddler-mailgun'
 
+gem 'unshorten'
 gem 'nokogiri'
 
 # Monitoring
