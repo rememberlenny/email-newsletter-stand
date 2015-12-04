@@ -2,9 +2,9 @@
 Rails.application.routes.draw do
   mount_griddler
   get 'n/unconfirmed',     to: 'newsletters#unconfirmed', as: :unconfirmed
-  get 'n/:id',  to: 'newsletters#show', as: :newsletter
-  get 'n/',     to: 'newsletters#index', as: :newsletters
-  resources :newsletters
+  resources :newsletters, :path => 'n' do
+    get 'page/:page', :action => :index, :on => :collection
+  end
   get 't/:tag', to: 'newsletters#index', as: :tag
   get 'e/:id',  to: 'emails#show', as: :email
   get 'e/',     to: 'emails#index', as: :emails

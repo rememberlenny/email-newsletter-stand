@@ -33,21 +33,10 @@
   %div.row.col-md-12
     - @related_emails.each do |email|
       %p
-        = link_to email.subject, @email
+        = link_to email.subject, email
 
 - if !@links .empty?
   %div.row
     %div.col-md-12
       %h3
-        Links
-  %div.row.col-md-12
-    - @links.each do |link|
-      %div
-        - if !link.title.nil?
-          %h4 
-            = link_to link.url do
-              = link.title
-          %p
-            = link.description
-        - else
-          = link_to link.url, link.url
+        = link_to 'View the Links', link_path(@email)
