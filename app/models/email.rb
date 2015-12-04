@@ -47,7 +47,14 @@ class Email < ActiveRecord::Base
         @email.tag_list.add(word)
       end
     end
+  end
 
+  def self.shorten_url url
+    uri_str = URI.encode url
+    result = Curl::Easy.http_get(uri_str) do |curl|
+      curl.follow_location = false
+    end
+    return result.header_str.split('Location: ')[1].split(' ')[0]
   end
 
   def self.remove_short_links email_id
@@ -56,11 +63,8 @@ class Email < ActiveRecord::Base
       @html = Nokogiri::HTML(@email.raw_html)
       @html.css('a').each do |el|
         puts 'Changing ' + el['href'].to_s
-        uri_str = URI.encode el['href']
-        result = Curl::Easy.http_get(uri_str) do |curl|
-          curl.follow_location = false
-        end
-        el['href'] = result.header_str.split('Location: ')[1].split(' ')[0]
+
+        el['href'] = Email.shorten_url [el['href']]
         puts 'to ' + el['href'].to_s
         puts '--'
       end
