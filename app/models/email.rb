@@ -61,7 +61,7 @@ class Email < ActiveRecord::Base
       @html.css('a').each do |el|
         puts 'Changing ' + el['href'].to_s
 
-        el['href'] = Email.shorten_url [el['href']]
+        el['href'] = Email.shorten_url el['href']
         puts 'to ' + el['href'].to_s
         puts '--'
       end
