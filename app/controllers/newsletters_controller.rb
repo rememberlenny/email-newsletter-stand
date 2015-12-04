@@ -19,7 +19,7 @@ class NewslettersController < ApplicationController
     if params[:tag]
       @newsletters = Newsletter.tagged_with(params[:tag]).page params[:page]
     else
-      @newsletters = Newsletter.all.order('updated_at DESC').page params[:page]
+      @newsletters = Newsletter.all.where.not(admin_email: true).order('updated_at DESC').page params[:page]
     end
     respond_with(@newsletters)
   end

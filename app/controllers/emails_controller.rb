@@ -11,7 +11,7 @@ class EmailsController < ApplicationController
     if params[:tag]
       @emails = Email.tagged_with(params[:tag]).page params[:page]
     else
-      @emails = Email.all.order('created_at DESC').page params[:page]
+      @emails = Email.all.where.not(admin_email: true).order('created_at DESC').page params[:page]
     end
     respond_with(@emails)
   end
