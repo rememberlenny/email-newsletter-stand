@@ -40,13 +40,16 @@ class Email < ActiveRecord::Base
     @email = Email.find email_id
     extractor = Phrasie::Extractor.new
     keywords = []
+    puts 'Running on email ' + @email.subject
     words = extractor.phrases @email.body
     words.each do |word|
       word[0] = word[0].gsub(/[^0-9a-z ]/i, '')
       if !word[0].empty?
+        puts 'Adding word ' + word[0].to_s
         @email.tag_list.add(word[0])
       end
     end
+    puts '====='
   end
 
   def self.shorten_url url
