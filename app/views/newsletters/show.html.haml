@@ -41,12 +41,12 @@
       %div
         = @newsletter.uid + '@emailnewsletterstand.com'
 
-- if !@related_emails.empty?
+- if !@related_newsletters.empty?
   %div.row
     %div.col-md-12
       %h3
         Related Newsletters
   %div.row.col-md-12
-    - @related_emails.each do |newsletter|
+    - @related_newsletters.each do |newsletter|
       %p
         = link_to newsletter.name, newsletter

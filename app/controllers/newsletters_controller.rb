@@ -28,7 +28,7 @@ class NewslettersController < ApplicationController
     @set_title = @newsletter.name
     @set_meta_description = @newsletter.description
     @set_meta_keyword = @newsletter.tag_list
-    @related_emails = Newsletter.tagged_with(@set_meta_keyword, any: true).limit(10)
+    @related_newsletters = Newsletter.tagged_with(@set_meta_keyword, any: true).limit(10)
     respond_with(@newsletter)
   end
 
