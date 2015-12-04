@@ -281,7 +281,8 @@ CREATE TABLE links (
     url text,
     title text,
     description text,
-    linktype text
+    linktype text,
+    origin_url text
 );
 
 
@@ -1077,4 +1078,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151204171715');
 INSERT INTO schema_migrations (version) VALUES ('20151204195402');
 
 INSERT INTO schema_migrations (version) VALUES ('20151204203438');
+
+INSERT INTO schema_migrations (version) VALUES ('20151204205108');
 
