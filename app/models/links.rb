@@ -11,7 +11,7 @@ class Links < ActiveRecord::Base
 
 		@link.url = ograph.url
 		@link.title = ograph.title 
-		@link.type = ograph.type 
+		@link.linktype = ograph.type 
 		@link.description = ograph.description 
 		@link.save
 	end
