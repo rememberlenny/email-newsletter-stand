@@ -18,7 +18,7 @@ class EmailsController < ApplicationController
 
   def links
     @newsletter = Newsletter.find @email.newsletter_id
-    @links = Links.where(email_id: @email.id)
+    @links = Links.where(email_id: @email.id).order('description ASC').order('title ASC')
     respond_with(@links)
   end
 
