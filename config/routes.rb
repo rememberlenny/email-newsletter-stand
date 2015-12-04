@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   resources :newsletters, :path => 'n' do
     get 'page/:page', :action => :index, :on => :collection
   end
+  resources :emails, :path => 'e' do
+    get 'page/:page', :action => :index, :on => :collection
+  end
   get 't/:tag', to: 'newsletters#index', as: :tag
   get 'e/:id/link',  to: 'emails#links', as: :link
-  get 'e/:id',  to: 'emails#show', as: :email
-  get 'e/',     to: 'emails#index', as: :emails
 
   resources :curations
 
