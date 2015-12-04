@@ -42,5 +42,12 @@
         Links
   %div.row.col-md-12
     - @links.each do |link|
-      %p
-        = link_to link.url, link.url
+      %div
+        - if !link.title.nil?
+          %h4 
+            = link_to link.url do
+              = link.title
+          %p
+            = link.description
+        - else
+          = link_to link.url, link.url
