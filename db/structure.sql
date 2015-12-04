@@ -278,7 +278,10 @@ CREATE TABLE links (
     email_id integer,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    url text
+    url text,
+    title text,
+    type text,
+    description text
 );
 
 
@@ -1070,4 +1073,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151202160447');
 INSERT INTO schema_migrations (version) VALUES ('20151204141021');
 
 INSERT INTO schema_migrations (version) VALUES ('20151204171715');
+
+INSERT INTO schema_migrations (version) VALUES ('20151204195402');
 
