@@ -4,4 +4,13 @@ class Links < ActiveRecord::Base
 	def self.save_url email_id, url
 		Links.create(email_id: email_id, url: url)
 	end
+
+	def self.get_ograph link_id
+		@link = Link.find link_id
+		ograph = OpenGraph.new(@link.url)
+
+		@link.title = ograph.title 
+		@link.type = ograph.type 
+		@link.description = ograph.description 
+	end
 end

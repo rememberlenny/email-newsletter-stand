@@ -1,6 +1,6 @@
 class EmailsController < ApplicationController
   respond_to :html, :json
-  before_action :set_email, only: [:show, :edit, :update, :destroy]
+  before_action :set_email, only: [:links, :show, :edit, :update, :destroy]
   skip_authorization_check
   skip_before_action :authenticate_user!
 
@@ -14,6 +14,12 @@ class EmailsController < ApplicationController
       @emails = Email.all.where.not(admin_email: true).order('created_at DESC').page params[:page]
     end
     respond_with(@emails)
+  end
+
+  def links
+    @newsletter = Newsletter.find @email.newsletter_id
+    @links = Links.where(email_id: @email.id)
+    respond_with(@links)
   end
 
   def show

@@ -24,6 +24,7 @@ gem 'griddler-mailgun'
 
 gem 'curb'
 gem 'nokogiri'
+gem 'opengraph_parser'
 
 # Monitoring
 gem 'rack-timeout', '~> 0.1.0beta4'
