@@ -38,4 +38,11 @@
     - @related_emails.each do |email|
       %p
         = link_to email.subject, email
+%div.row
+  %div.col-md-12
+    %p
+      = link_to 'More from the Newsletter', newsletter_path(@newsletter), class: 'btn btn-default'
+    - if !@links .empty?
+      %p
+        = link_to 'View the Links', link_path(@email), class: 'btn btn-default'
 
