@@ -30,7 +30,7 @@
   = raw @email.body.html_safe
 
 
-- if @related_emails.count > 0
+- if !@related_emails.empty?
   %div.row
     %div.col-md-12
       %h3

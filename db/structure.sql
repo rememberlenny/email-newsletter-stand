@@ -270,6 +270,38 @@ ALTER SEQUENCE friendly_id_slugs_id_seq OWNED BY friendly_id_slugs.id;
 
 
 --
+-- Name: links; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE links (
+    id integer NOT NULL,
+    email_id integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    url text
+);
+
+
+--
+-- Name: links_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE links_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: links_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE links_id_seq OWNED BY links.id;
+
+
+--
 -- Name: newsletters; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -617,6 +649,13 @@ ALTER TABLE ONLY friendly_id_slugs ALTER COLUMN id SET DEFAULT nextval('friendly
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY links ALTER COLUMN id SET DEFAULT nextval('links_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY newsletters ALTER COLUMN id SET DEFAULT nextval('newsletters_id_seq'::regclass);
 
 
@@ -716,6 +755,14 @@ ALTER TABLE ONLY emails
 
 ALTER TABLE ONLY friendly_id_slugs
     ADD CONSTRAINT friendly_id_slugs_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: links_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY links
+    ADD CONSTRAINT links_pkey PRIMARY KEY (id);
 
 
 --
@@ -1019,4 +1066,8 @@ INSERT INTO schema_migrations (version) VALUES ('20151128025013');
 INSERT INTO schema_migrations (version) VALUES ('20151128025015');
 
 INSERT INTO schema_migrations (version) VALUES ('20151202160447');
+
+INSERT INTO schema_migrations (version) VALUES ('20151204141021');
+
+INSERT INTO schema_migrations (version) VALUES ('20151204171715');
 
