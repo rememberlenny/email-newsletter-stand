@@ -17,8 +17,21 @@ class Email < ActiveRecord::Base
     return url
   end
 
-  def self.remove_unsubscribe_tag
-    html_doc = Nokogiri::HTML(self.raw_html)
+  def self.remove_short_links email_id
+    @email = Email.find email_id
+    if !@email.raw_html.nil?
+      @html = Nokogiri::HTML(@email.raw_html)
+      @html.css('a').each do |el|
+        puts 'Changing ' + el['href'].to_s
+        el['href'] = Unshorten[el['href']]
+        puts 'to ' + el['href'].to_s
+        puts '--'
+      end
+
+      raw_html = @html.to_html
+      @email.raw_html = raw_html
+      @email.save
+    end
   end
 
   def self.remove_unsubscribe email_id
