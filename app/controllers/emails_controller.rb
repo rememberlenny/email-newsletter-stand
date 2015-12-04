@@ -56,6 +56,6 @@ class EmailsController < ApplicationController
     end
 
     def email_params
-      params.require(:email).permit( :slug, :newsletter_id, :to, :from, :subject, :body, :raw_text, :raw_html, :raw_body, :headers, :raw_headers)
+      params.require(:email).permit( :slug, :newsletter_id, :to, :from, :subject, :body, :raw_text, :raw_html, :raw_body, :headers, :raw_headers, :tag_list)
     end
 end
