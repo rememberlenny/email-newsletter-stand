@@ -30,3 +30,11 @@
   = raw @email.body.html_safe
 
 
+- if @related_emails.count > 0
+  %div.row
+    %div.col-md-12
+      %h3
+        Related Emails
+  %div.row.col-md-12
+    - @related_emails.each do |email|
+      = link_to email.subject, @email

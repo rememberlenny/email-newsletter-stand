@@ -21,6 +21,8 @@ class EmailsController < ApplicationController
     @set_title = @email.subject + ' | ' + @newsletter.name
     @set_meta_description = @newsletter.description
     @set_meta_keyword = @newsletter.tag_list
+    @set_meta_keyword << @email.tag_list
+    @related_emails = Email.tagged_with(@set_meta_keyword, any: true)
     respond_with(@email)
   end
 
