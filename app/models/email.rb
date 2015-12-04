@@ -50,11 +50,8 @@ class Email < ActiveRecord::Base
   end
 
   def self.shorten_url url
-    uri_str = URI.encode url
-    result = Curl::Easy.http_get(uri_str) do |curl|
-      curl.follow_location = false
-    end
-    return result.header_str.split('Location: ')[1].split(' ')[0]
+    url = Unshorten[url]
+    return url
   end
 
   def self.remove_short_links email_id

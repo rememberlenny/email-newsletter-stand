@@ -22,6 +22,7 @@ gem 'sitemap_generator'
 gem 'griddler'
 gem 'griddler-mailgun'
 
+gem 'curb'
 gem 'nokogiri'
 
 # Monitoring
