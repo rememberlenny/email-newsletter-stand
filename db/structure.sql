@@ -213,7 +213,9 @@ CREATE TABLE emails (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     admin_email boolean DEFAULT false,
-    slug character varying(255)
+    slug character varying(255),
+    origin_body text,
+    origin_raw_html text
 );
 
 
@@ -1080,4 +1082,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151204195402');
 INSERT INTO schema_migrations (version) VALUES ('20151204203438');
 
 INSERT INTO schema_migrations (version) VALUES ('20151204205108');
+
+INSERT INTO schema_migrations (version) VALUES ('20151204205539');
 

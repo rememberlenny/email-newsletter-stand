@@ -2,8 +2,7 @@ class Email < ActiveRecord::Base
   validates :newsletter_id, presence: true
   after_create :refresh_sitemap
   after_create :check_for_welcome
-  after_create :prep_remove_unsubscribe
-  after_create :prep_remove_short_links
+  after_create :process_email
   belongs_to :newsletter, touch: true
   has_many :links
   acts_as_taggable
@@ -21,8 +20,18 @@ class Email < ActiveRecord::Base
     return url
   end
 
-  def prep_remove_short_links
-    Email.delay.remove_short_links self.id
+  def process_email
+    Email.delay.save_original self.id
+  end
+
+  def self.save_original id
+    @email = Email.find id
+    @email.origin_body = @email.body
+    @email.origin_raw_html = @email.raw_html
+    @email.save
+
+    Email.delay.remove_unsubscribe id
+    Email.delay.remove_short_links id
   end
 
   def self.get_keywords email_id
@@ -124,9 +133,7 @@ class Email < ActiveRecord::Base
     puts 'Saving change from ' + @email.subject
   end
 
-  def prep_remove_unsubscribe
-    Email.delay.remove_unsubscribe self.id
-  end
+
 
   def check_for_welcome
     flagged = false
