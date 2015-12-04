@@ -1,5 +1,3 @@
-require 'unshorten'
-
 class Email < ActiveRecord::Base
   validates :newsletter_id, presence: true
   after_create :refresh_sitemap
