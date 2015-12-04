@@ -25,17 +25,6 @@ class Email < ActiveRecord::Base
     Email.delay.remove_short_links self.id
   end
 
-  def self.save_links email_id
-    @email = Email.find email_id
-    if !@email.raw_html.nil?
-      @html = Nokogiri::HTML(@email.raw_html)
-      @html.css('a').each do |el|
-        puts 'Saving the link: ' + el['href']
-        Links.delay.save_url(email_id, el['href'])
-      end
-    end  
-  end
-
   def self.get_keywords email_id
     @email = Email.find email_id
     extractor = Phrasie::Extractor.new
@@ -62,17 +51,17 @@ class Email < ActiveRecord::Base
     if !@email.raw_html.nil?
       @html = Nokogiri::HTML(@email.raw_html)
       @html.css('a').each do |el|
+        origin = el['href']
         puts 'Changing ' + el['href'].to_s
-
-        el['href'] = Email.shorten_url el['href']
-        puts 'to ' + el['href'].to_s
+        new_url = Email.shorten_url el['href']
+        el['href'] = new_url
+        puts 'to ' + new_url.to_s
         puts '--'
+        Link.create(email_id: email_id, origin_url: origin, url: new_url)
       end
-
       raw_html = @html.to_html
       @email.raw_html = raw_html
       @email.save
-      Email.delay.save_links email_id
     end
   end
 
