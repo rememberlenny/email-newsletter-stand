@@ -111,12 +111,11 @@ class Email < ActiveRecord::Base
           puts 'Saving change'
         end
         if el.parent.text.downcase.include? "unsubscribe"
-          el.parent.content = ""
+          el.content = ""
           puts 'Found unsubscribe in parent'
           puts 'Saving change'
         end
         
-        puts @email.subject
 
         raw_html = @html.to_html
         raw_html = raw_html.gsub @newsletter.uid, 'yourfriendly'
@@ -127,6 +126,7 @@ class Email < ActiveRecord::Base
         @email.save
       end
     end
+    puts 'Saving change from ' + @email.subject
   end
 
   def prep_remove_unsubscribe
