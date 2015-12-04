@@ -116,6 +116,9 @@ class Email < ActiveRecord::Base
           puts 'Saving change'
         end
         
+        body = @email.body
+        body = body.gsub @newsletter.uid, 'yourfriendly'
+        @email.body = body
 
         raw_html = @html.to_html
         raw_html = raw_html.gsub @newsletter.uid, 'yourfriendly'
