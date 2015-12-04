@@ -4,6 +4,7 @@ class Email < ActiveRecord::Base
   after_create :check_for_welcome
   after_create :prep_remove_unsubscribe
   after_create :prep_remove_short_links
+  belongs_to :newsletter, touch: true
   acts_as_taggable
   include AlgoliaSearch
 

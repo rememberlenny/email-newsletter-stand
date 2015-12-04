@@ -8,6 +8,7 @@ class Newsletter < ActiveRecord::Base
   attachment :featured_image
   acts_as_taggable
   acts_as_votable
+  has_many :emails
   include AlgoliaSearch
 
   algoliasearch per_environment: true do
