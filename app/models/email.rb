@@ -56,7 +56,11 @@ class Email < ActiveRecord::Base
       @html = Nokogiri::HTML(@email.raw_html)
       @html.css('a').each do |el|
         puts 'Changing ' + el['href'].to_s
-        el['href'] = Unshorten[el['href']]
+        uri_str = URI.encode el['href']
+        result = Curl::Easy.http_get(uri_str) do |curl|
+          curl.follow_location = false
+        end
+        el['href'] = result.header_str.split('Location: ')[1].split(' ')[0]
         puts 'to ' + el['href'].to_s
         puts '--'
       end
