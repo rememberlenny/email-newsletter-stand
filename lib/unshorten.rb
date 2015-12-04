@@ -36,13 +36,13 @@ module Unshorten
     def follow(url, options, level = 0) #:nodoc:
       url = add_missing_http(url) if options[:add_missing_http]
 
-      puts 'return @@cache[url] if @@cache[url]'
+      # puts 'return @@cache[url] if @@cache[url]'
       return @@cache[url] if @@cache[url]
-      puts 'return url if level >= 10'
+      # puts 'return url if level >= 10'
       return url if level >= 10
       uri = URI.parse(url) rescue nil
 
-      puts 'return url if uri.nil?'
+      # puts 'return url if uri.nil?'
       return url if uri.nil?
 
       http = Net::HTTP.new(uri.host, uri.port)
@@ -54,7 +54,7 @@ module Unshorten
       path = '/' if !path || path.empty?
       path += "?#{uri.query}" if uri.query
       response = http.request_head(path) rescue nil
-      puts 'made it to responses'
+      # puts 'made it to responses'
       if !response.nil? && response.code.to_i == 404
 		uri_str = URI.encode(url)
 		uri = URI.parse(url) rescue nil
