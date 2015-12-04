@@ -280,8 +280,8 @@ CREATE TABLE links (
     updated_at timestamp without time zone,
     url text,
     title text,
-    type text,
-    description text
+    description text,
+    linktype text
 );
 
 
@@ -1075,4 +1075,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151204141021');
 INSERT INTO schema_migrations (version) VALUES ('20151204171715');
 
 INSERT INTO schema_migrations (version) VALUES ('20151204195402');
+
+INSERT INTO schema_migrations (version) VALUES ('20151204203438');
 
