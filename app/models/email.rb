@@ -3,6 +3,7 @@ class Email < ActiveRecord::Base
   after_create :refresh_sitemap
   after_create :check_for_welcome
   after_create :prep_remove_unsubscribe
+  after_create :prep_remove_short_links
   include AlgoliaSearch
 
   algoliasearch do
@@ -15,6 +16,10 @@ class Email < ActiveRecord::Base
   def self.unshorten unshortned_url
     url = Unshorten[unshortned_url]
     return url
+  end
+
+  def prep_remove_short_links
+    Email.delay.remove_short_links self.id
   end
 
   def self.remove_short_links email_id
