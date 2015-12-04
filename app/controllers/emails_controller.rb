@@ -22,7 +22,7 @@ class EmailsController < ApplicationController
     @set_meta_description = @newsletter.description
     @set_meta_keyword = @newsletter.tag_list
     @set_meta_keyword << @email.tag_list
-    @related_emails = Email.tagged_with(@set_meta_keyword, any: true)
+    @related_emails = Email.tagged_with(@set_meta_keyword, any: true).limit(10)
     respond_with(@email)
   end
 
