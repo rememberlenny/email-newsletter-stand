@@ -4,6 +4,7 @@ class Email < ActiveRecord::Base
   after_create :check_for_welcome
   after_create :prep_remove_unsubscribe
   after_create :prep_remove_short_links
+  acts_as_taggable
   include AlgoliaSearch
 
   algoliasearch do
@@ -20,6 +21,20 @@ class Email < ActiveRecord::Base
 
   def prep_remove_short_links
     Email.delay.remove_short_links self.id
+  end
+
+  def self.get_keywords email_id
+    @email = Email.find email_id
+    extractor = Phrasie::Extractor.new
+    keywords = []
+    words = extractor.phrases @email.body
+    words.each do |word|
+      word = word.gsub(/[^0-9a-z ]/i, '')
+      if !word.empty?
+        @email.tag_list.add(word)
+      end
+    end
+
   end
 
   def self.remove_short_links email_id

@@ -13,6 +13,9 @@ gem 'terminal-notifier', group: [:development]
 # LINUX
 # gem 'rb-inotify', :group => [:development, :test]   # monitor file changes without hammering the disk
 
+gem 'phrasie'
+gem "ruby-readability", :require => 'readability'
+
 # Search
 gem 'algoliasearch-rails'
 gem 'sitemap_generator'
