@@ -13,6 +13,10 @@
   %div.col-md-4
     %p
       = link_to 'More from the Newsletter', newsletter_path(@newsletter), class: 'btn btn-default'
+    - if !@links .empty?
+      %p
+        = link_to 'View the Links', link_path(@email), class: 'btn btn-default'
+
 
 %div.row
   %div.col-md-12
@@ -35,8 +39,3 @@
       %p
         = link_to email.subject, email
 
-- if !@links .empty?
-  %div.row
-    %div.col-md-12
-      %h3
-        = link_to 'View the Links', link_path(@email)
