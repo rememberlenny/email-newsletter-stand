@@ -9,6 +9,7 @@ class Links < ActiveRecord::Base
 		@link = Link.find link_id
 		ograph = OpenGraph.new(@link.url)
 
+		@link.url = ograph.url
 		@link.title = ograph.title 
 		@link.type = ograph.type 
 		@link.description = ograph.description 
