@@ -6,7 +6,7 @@ class Links < ActiveRecord::Base
 	end
 
 	def self.get_ograph link_id
-		@link = Link.find link_id
+		@link = Links.find link_id
 		ograph = OpenGraph.new(@link.url)
 
 		@link.url = ograph.url
@@ -16,3 +16,4 @@ class Links < ActiveRecord::Base
 		@link.save
 	end
 end
+
