@@ -1,8 +1,13 @@
 class Links < ActiveRecord::Base
 	belongs_to :email
+	after_create :prep_get_ograph
 
 	def self.save_url email_id, url
 		Links.create(email_id: email_id, url: url)
+	end
+
+	def self.prep_get_ograph 
+		Links.delay.get_ograph self.id
 	end
 
 	def self.get_ograph link_id
