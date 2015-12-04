@@ -42,9 +42,9 @@ class Email < ActiveRecord::Base
     keywords = []
     words = extractor.phrases @email.body
     words.each do |word|
-      word = word.gsub(/[^0-9a-z ]/i, '')
-      if !word.empty?
-        @email.tag_list.add(word)
+      word[0] = word[0].gsub(/[^0-9a-z ]/i, '')
+      if !word[0].empty?
+        @email.tag_list.add(word[0])
       end
     end
   end
