@@ -5,6 +5,7 @@ class Email < ActiveRecord::Base
   after_create :prep_remove_unsubscribe
   after_create :prep_remove_short_links
   belongs_to :newsletter, touch: true
+  has_many :links
   acts_as_taggable
   include AlgoliaSearch
 
@@ -22,6 +23,17 @@ class Email < ActiveRecord::Base
 
   def prep_remove_short_links
     Email.delay.remove_short_links self.id
+  end
+
+  def self.save_links email_id
+    @email = Email.find email_id
+    if !@email.raw_html.nil?
+      @html = Nokogiri::HTML(@email.raw_html)
+      @html.css('a').each do |el|
+        puts 'Saving the link: ' + el['href']
+        Links.delay.save_url(email_id, el['href'])
+      end
+    end  
   end
 
   def self.get_keywords email_id
@@ -52,6 +64,7 @@ class Email < ActiveRecord::Base
       raw_html = @html.to_html
       @email.raw_html = raw_html
       @email.save
+      Email.delay.save_links email_id
     end
   end
 
