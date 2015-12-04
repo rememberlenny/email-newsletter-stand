@@ -1,18 +1,33 @@
-%h1
-  Links from #{@email.subject}
-- if !@links .empty?
-  %div.row
-    %div.col-md-12
-      %h3
-        Links
-    %div.row.col-md-12
-      - @links.each do |link|
+%div.row
+  .col-md-12
+    .row
+      %div.col-md-8
+        %h1
+          = link_to newsletter_path(@newsletter) do
+            Links from #{@email.subject}
         %div
-          - if !link.title.nil?
-            %h4 
-              = link_to link.url do
-                = link.title
-            %p
-              = link.description
-          - else
-            = link_to link.url, link.url
+          %p
+            Sent #{@email.created_at}
+      %div.col-md-4
+        %p
+        %p
+          = link_to 'Back to the email', email_path(@email), class: 'btn btn-default'
+        %p
+          = link_to 'More from the Newsletter', newsletter_path(@newsletter), class: 'btn btn-default'
+
+    %h3
+      Links
+  .col-md-12
+    - @links.each do |link|
+      %div
+        - if !link.title.nil?
+          %h4 
+            = link_to link.url do
+              = link.title
+          %p
+            = link.description
+        - else
+          = link_to link.url, link.url
+  .col-md-12
+    %p
+    = link_to 'Back to the email', email_path(@email), class: 'btn btn-default'

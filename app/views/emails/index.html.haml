@@ -10,8 +10,13 @@
         %li
           %strong
             = link_to Newsletter.find(email.newsletter_id).name, email
+          %span 
+            |
           = link_to email.subject, email
+          %span 
+            |
+          %small
+            = link_to 'Links from newsletter', link_path(email)
           %p
             = strip_tags email.body.split(" ").first(70).join(" ").gsub(/(?:f|ht)tps?:\/[^\s]+/, '') + "..."
-
 = paginate @emails
