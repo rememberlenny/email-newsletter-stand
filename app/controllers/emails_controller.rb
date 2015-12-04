@@ -23,6 +23,7 @@ class EmailsController < ApplicationController
     @set_meta_keyword = @newsletter.tag_list
     @set_meta_keyword << @email.tag_list
     @related_emails = Email.tagged_with(@set_meta_keyword, any: true).limit(10)
+    @links = Links.where(email_id: @email.id)
     respond_with(@email)
   end
 
