@@ -14,7 +14,9 @@ SitemapGenerator::Sitemap.create do
 
   Email.find_each do |email|
     add email_path(email), :lastmod => email.updated_at
+    add link_path(email), :lastmod => email.updated_at
   end
+
 end
 s3 = Aws::S3::Resource.new(
   access_key_id: ENV['ENS_AWS_ACCESS_KEY_ID'],
