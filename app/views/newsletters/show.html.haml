@@ -50,8 +50,8 @@
   %div.row
     %div.col-md-12
       %h3
-        Related Emails
+        Related Newsletters
   %div.row.col-md-12
-    - @related_emails.each do |email|
+    - @related_emails.each do |newsletter|
       %p
-        = link_to email.subject, @email
+        = link_to newsletter.name, newsletter
