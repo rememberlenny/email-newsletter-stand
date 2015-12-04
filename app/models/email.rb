@@ -85,6 +85,12 @@ class Email < ActiveRecord::Base
           puts 'Found unsubscribe'
           puts 'Saving change'
         end
+        if el.text.downcase.include? "remove me"
+          el['href'] = ""
+          el.content = ""
+          puts 'Found Remove me'
+          puts 'Saving change'
+        end
 
         if el.text.downcase.include? "subscription preferences"
           el['href'] = ""
