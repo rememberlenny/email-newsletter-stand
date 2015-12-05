@@ -72,4 +72,6 @@ Rails.application.routes.draw do
   get "sitemap5.xml.gz" => "sitemaps#sitemap", format: :xml, as: :sitemap5
 
   root 'emails#index'
+
+  match '*path' => redirect('/')   unless Rails.env.development?
 end
