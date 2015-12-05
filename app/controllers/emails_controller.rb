@@ -59,7 +59,11 @@ class EmailsController < ApplicationController
 
   private
     def set_email
-      @email = Email.friendly.find(params[:id])
+      if Email.friendly.exists? params[:id]
+        @email = Email.friendly.find(params[:id])
+      else
+        redirect_to root_path
+      end
     end
 
     def email_params

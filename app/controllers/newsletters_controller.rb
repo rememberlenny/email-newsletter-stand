@@ -57,8 +57,12 @@ class NewslettersController < ApplicationController
   end
 
   private
-    def set_newsletter
-      @newsletter = Newsletter.friendly.find(params[:id])
+    def set_newsletteor
+      if Newsletter.friendly.exists? params[:id]
+        @newsletter = Newsletter.friendly.find(params[:id])
+      else
+        redirect_to root_path
+      end
     end
 
     def set_emails
