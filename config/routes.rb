@@ -68,5 +68,5 @@ Rails.application.routes.draw do
 
   root 'emails#index'
 
-  match '*path' => redirect('/')   unless Rails.env.development?
+  match '*path' => redirect('/'), via: :get unless Rails.env.development?
 end
