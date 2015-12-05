@@ -65,11 +65,6 @@ Rails.application.routes.draw do
 
   get 'robots.:format' => 'robots#index'
   get "sitemap.xml.gz" => "sitemaps#sitemap", format: :xml, as: :sitemap
-  get "sitemap1.xml.gz" => "sitemaps#sitemap", format: :xml, as: :sitemap1
-  get "sitemap2.xml.gz" => "sitemaps#sitemap", format: :xml, as: :sitemap2
-  get "sitemap3.xml.gz" => "sitemaps#sitemap", format: :xml, as: :sitemap3
-  get "sitemap4.xml.gz" => "sitemaps#sitemap", format: :xml, as: :sitemap4
-  get "sitemap5.xml.gz" => "sitemaps#sitemap", format: :xml, as: :sitemap5
 
   root 'emails#index'
 
