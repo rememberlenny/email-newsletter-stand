@@ -66,7 +66,7 @@ class Email < ActiveRecord::Base
         el['href'] = new_url
         puts 'to ' + new_url.to_s
         puts '--'
-        Link.create(email_id: email_id, origin_url: origin, url: new_url)
+        Links.create(email_id: email_id, origin_url: origin, url: new_url)
       end
       raw_html = @html.to_html
       @email.raw_html = raw_html
@@ -116,7 +116,7 @@ class Email < ActiveRecord::Base
           puts 'Found unsubscribe in parent'
           puts 'Saving change'
         end
-        
+
         body = @email.body
         body = body.gsub @newsletter.uid, 'yourfriendly'
         @email.body = body
