@@ -9,7 +9,7 @@
       - @emails.each do |email|
         %li
           %strong
-            = link_to Newsletter.find(email.newsletter_id).name, email
+            = link_to Newsletter.find(email.newsletter_id).name, Newsletter.find(email.newsletter_id)
           %span 
             |
           = link_to email.subject, email
