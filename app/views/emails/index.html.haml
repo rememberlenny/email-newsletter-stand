@@ -5,6 +5,8 @@
   .col-md-12
     %h2.text-center
       Most Recent
+    %p
+      This is 
     %ul.block-grid-sm-1
       - @emails.each do |email|
         %li
@@ -17,6 +19,9 @@
             |
           %small
             = link_to 'Links from newsletter', link_path(email)
+          %p{style: 'margin-bottom: 0px; padding: 0px;'}
+            %label.palette.palette-concrete{style: 'padding: 5px 10px;'}
+              = time_ago_in_words email.created_at
           - if !email.body.nil?
             %p
               = strip_tags email.body.split(" ").first(70).join(" ").gsub(/(?:f|ht)tps?:\/[^\s]+/, '') + "..."
