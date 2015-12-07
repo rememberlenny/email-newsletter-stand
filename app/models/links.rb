@@ -6,7 +6,7 @@ class Links < ActiveRecord::Base
 		Links.create(email_id: email_id, url: url)
 	end
 
-	def self.prep_get_ograph 
+	def prep_get_ograph 
 		Links.delay.get_ograph self.id
 	end
 
