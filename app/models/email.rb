@@ -45,6 +45,7 @@ class Email < ActiveRecord::Base
       if !word[0].empty?
         puts 'Adding word ' + word[0].to_s
         @email.tag_list.add(word[0])
+        @email.save
       end
     end
     puts '====='
