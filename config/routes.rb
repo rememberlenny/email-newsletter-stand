@@ -49,6 +49,10 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "#{devise_prefix}/after" => 'users/registrations#after_auth', as: 'user_root'
   end
+  authenticate :user, lambda { |user| user.is_admin? } do
+    mount Blazer::Engine, at: "blazer"
+  end
+  
   get devise_prefix => redirect('/a/signup')
 
   # User
