@@ -57,7 +57,7 @@ class NewslettersController < ApplicationController
   end
 
   private
-    def set_newsletteor
+    def set_newsletter
       if Newsletter.friendly.exists? params[:id]
         @newsletter = Newsletter.friendly.find(params[:id])
       else
