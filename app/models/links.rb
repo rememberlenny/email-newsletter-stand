@@ -1,5 +1,5 @@
 class Links < ActiveRecord::Base
-	belongs_to :email, touch: true
+	belongs_to :email, touch: true, :foreign_key=>"email_id"
 	after_create :prep_get_ograph
 
 	def self.save_url email_id, url

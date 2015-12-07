@@ -3,7 +3,7 @@ class Email < ActiveRecord::Base
   after_create :refresh_sitemap
   after_create :check_for_welcome
   after_create :process_email
-  belongs_to :newsletter, touch: true
+  belongs_to :newsletter, touch: true, :foreign_key=>"newsletter_id"
   has_many :links
   acts_as_taggable
   include AlgoliaSearch
