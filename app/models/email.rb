@@ -44,7 +44,7 @@ class Email < ActiveRecord::Base
       word[0] = word[0].gsub(/[^0-9a-z ]/i, '')
       if !word[0].empty?
         puts 'Adding word ' + word[0].to_s
-        @email.tag_list.add(word[0])
+        @email.tag_list.add(word[0]) rescue nil
         @email.save
       end
     end
