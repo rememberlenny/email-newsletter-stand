@@ -32,6 +32,7 @@ class Email < ActiveRecord::Base
 
     Email.delay.remove_unsubscribe id
     Email.delay.remove_short_links id
+    Email.delay.get_keywords id
   end
 
   def self.get_keywords email_id
