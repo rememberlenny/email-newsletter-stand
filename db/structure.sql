@@ -452,7 +452,7 @@ CREATE TABLE links (
     origin_url text,
     url_host character varying(255),
     url_path text,
-    original_url character varying(255)
+    original_url text
 );
 
 
@@ -1333,4 +1333,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151207155809');
 INSERT INTO schema_migrations (version) VALUES ('20151207160558');
 
 INSERT INTO schema_migrations (version) VALUES ('20151207161853');
+
+INSERT INTO schema_migrations (version) VALUES ('20151207162858');
 
