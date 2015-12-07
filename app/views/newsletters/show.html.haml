@@ -14,7 +14,7 @@
           %div
             %p{style: 'margin-bottom: 0px; padding: 0px;'}
               %label.palette.palette-concrete{style: 'padding: 5px 10px;'}
-                #{email.created_at.to_s}
+                #{email.created_at.to_s} ago
             = link_to email do
               %h2{style: 'margin-top: 5px'}
                 = link_to email.subject, email

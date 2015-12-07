@@ -21,7 +21,7 @@
             = link_to 'Links from newsletter', link_path(email)
           %p{style: 'margin-bottom: 0px; padding: 0px;'}
             %label.palette.palette-concrete{style: 'padding: 5px 10px;'}
-              = time_ago_in_words email.created_at
+              = time_ago_in_words email.created_at + ' ago'
           - if !email.body.nil?
             %p
               = strip_tags email.body.split(" ").first(70).join(" ").gsub(/(?:f|ht)tps?:\/[^\s]+/, '') + "..."
