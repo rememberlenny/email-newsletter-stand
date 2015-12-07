@@ -17,6 +17,7 @@
             |
           %small
             = link_to 'Links from newsletter', link_path(email)
-          %p
-            = strip_tags email.body.split(" ").first(70).join(" ").gsub(/(?:f|ht)tps?:\/[^\s]+/, '') + "..."
+          - if !email.body.nil?
+            %p
+              = strip_tags email.body.split(" ").first(70).join(" ").gsub(/(?:f|ht)tps?:\/[^\s]+/, '') + "..."
 = paginate @emails
