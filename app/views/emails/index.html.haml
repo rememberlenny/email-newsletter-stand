@@ -6,7 +6,12 @@
     %h2.text-center
       Most Recent
     %p
-      This is 
+      Below are the most recent emails that have arrived from the newsletters currently subscribed. Emails are subscirbed to a uniquely generated email address. The content of the emails is parsed to get the post-redirect links.
+    %p
+      Since the emails are directly embedded into the page, there is a lot of wonky CSS styling that is going on.
+    %p
+      If you would like to submit an email newsletter, please contact me at @rememberlenny or rememberlenny at gmail.
+      
     %ul.block-grid-sm-1
       - @emails.each do |email|
         %li
