@@ -9,7 +9,7 @@ common: &common
   # Downcased and trimmed app name for namespaces.
   # Safest to start with a letter rather than a number.
   # See locales/en.yml for setting your app's user facing brand name.
-  app_name: 'emailnewsletterstand'
+  app_name: 'emailnewsletterpost'
 
   social:
     facebook: 'https://www.facebook.com/rememberlenny'
@@ -43,6 +43,7 @@ default_env: &default_env
   APPLICATION_HOST:             www.emailnewsletterstand.com
   ASSET_HOST:                   www.emailnewsletterstand.com
   EXECJS_RUNTIME:               Node
+  DEVISE_SECRET_KEY:            3149ba60f92e7258f4fb9f4a05bcbd5a25002a829dcb34076b979d65e2eb8ddb24192759bac59436cd7ff698b9626c84c85abf1a29e295d3bca8438a39eaf790
   GOOGLE_ANALYTICS_ID:          UA-70452202-1
   LANG:                         en_US.UTF-8
   MAIL_HOST:                    emailnewsletterstand.com
