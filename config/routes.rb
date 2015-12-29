@@ -1,5 +1,6 @@
 # Route prefixes use a single letter to allow for vanity urls of two or more characters
 Rails.application.routes.draw do
+
   mount_griddler
   get 'n/unconfirmed',     to: 'newsletters#unconfirmed', as: :unconfirmed
   resources :newsletters, :path => 'n' do
@@ -33,6 +34,9 @@ Rails.application.routes.draw do
   get '/status' => 'pages#status', as: 'status'
   get '/contact' => 'pages#contact', as: 'contact'
 
+  get '/submission' => 'submission#new', as: 'new_submission'
+  post '/submission' => 'submission#create', as: 'create_submission'
+
   # OAuth
   oauth_prefix = Rails.application.config.auth.omniauth.path_prefix
   get "#{oauth_prefix}/:provider/callback" => 'users/oauth#create'
@@ -52,7 +56,7 @@ Rails.application.routes.draw do
   authenticate :user, lambda { |user| user.is_admin? } do
     mount Blazer::Engine, at: "blazer"
   end
-  
+
   get devise_prefix => redirect('/a/signup')
 
   # User
